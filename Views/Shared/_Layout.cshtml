@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dahaim #1</title>
+
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="~/Content/style.css">
+</head>
+<body>
+    <header>
+        <div class="conteiner">
+            <nav class="navbar navbar-expand-lg text-center">
+                <a class="navbar-brand" href="#index.html"><h1 id="logo"><span id="logoFirst">d</span>ahaim</h1></a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto menu">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#index.html">Strona główna</a>
+                        <li class="nav-item">
+                            <a class="nav-link ml-3" href="#omnielink">o mnie</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link  ml-3" href="#ofertalink">oferta</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link  ml-3" href="#kontaktlink">Kontakt</a>
+                        </li>
+                       </ul>
+                </div>
+
+            </nav>
+        </div>
+    </header>
+
+
+
+        <div>@RenderBody()</div>
+
+
+        <footer>
+            <div class="conteiner">
+                <p>Dahaim copywritr &copy 2020 | Mady by Łukasz Bekus</p>
+            </div>
+        </footer>
+
+    <script src="./bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+
