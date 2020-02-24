@@ -13,9 +13,17 @@ namespace DahaimMVC
                                           string src,
                                           string altText,
                                           string cssClass,
+                                          string name = null,
                                           object htmlAtributes = null)
         {
+
             TagBuilder tb = new TagBuilder("img");
+
+            if (!string.IsNullOrWhiteSpace(name))
+            {
+                HtmlExtCommon.AddNameAndId(tb, name, "");
+            }
+
             tb.MergeAttribute("src", src);
             tb.MergeAttribute("alt", altText);
 
