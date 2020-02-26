@@ -91,6 +91,9 @@ header {
 #logoFirst {
   color: var(--lightBlue);
 }
+.moje{
+    color:red;
+}
 /* First Page: */
 .welcomePage {
   min-height: 700px;
@@ -202,3 +205,4 @@ footer {
   font-size: 14px;
 }
 }
+/* UserDetails Layout page */

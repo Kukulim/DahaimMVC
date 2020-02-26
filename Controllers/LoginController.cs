@@ -1,24 +1,42 @@
-﻿using System;
+﻿using DahaimMVC.Models;
+using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
 using System.Linq;
-using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using DahaimMVC.Models;
-using DahaimMVC.Models.Context;
 
 namespace DahaimMVC.Controllers
 {
     public class LoginController : Controller
     {
-        private readonly DahaimAppContext db = new DahaimAppContext();
-
-        public ActionResult AddOrEdit()
+        UserDbContext database = new UserDbContext();
+        public LoginController()
+        {
+            //UserDbContext database = new UserDbContext();
+        }
+        
+        public ActionResult Index()
         {
             return View();
         }
-
+        public ActionResult Authorize(User userModel)
+        {
+            var UserDetails = database.User.Where(x => x.UserName == userModel.UserName && x.UserPassword == userModel.UserPassword).FirstOrDefault();
+            if (UserDetails == null)
+            {
+                return View("Index");
+            }
+            else
+            {
+                Session["UserId"] = UserDetails.UserId;
+                Session["UserName"] = UserDetails.UserName;
+                return RedirectToAction("Index", "UserDetails");
+            }
+        }
+        public ActionResult LogOut()
+        {
+            Session.Abandon();
+            return RedirectToAction("Index", "Login");
+        }
     }
 }
