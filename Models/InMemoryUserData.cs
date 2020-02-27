@@ -47,7 +47,7 @@ namespace DahaimMVC.Models
         }
         public User GetLogin(User user)
         {
-            return user;
+            return users.Where(x => x.UserName == user.UserName && x.UserPassword == user.UserPassword).FirstOrDefault();
         }
     }
 }
