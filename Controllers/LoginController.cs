@@ -38,5 +38,14 @@ namespace DahaimMVC.Controllers
             Session.Abandon();
             return RedirectToAction("Index", "Login");
         }
+        public ActionResult Register()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Register(User user)
+        {
+            return View();
+        }
     }
 }
