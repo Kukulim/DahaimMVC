@@ -13,7 +13,7 @@ namespace DahaimMVC
 
             builder.RegisterControllers(typeof(MvcApplication).Assembly);
 
-            builder.RegisterType<SqlUserData>().As<IUserData>().SingleInstance();
+            builder.RegisterType<InMemoryUserData>().As<IUserData>().SingleInstance();
             builder.RegisterType<UserDbContext>().SingleInstance();
 
             IContainer container = builder.Build();

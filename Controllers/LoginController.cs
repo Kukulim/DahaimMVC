@@ -45,7 +45,9 @@ namespace DahaimMVC.Controllers
         [HttpPost]
         public ActionResult Register(User user)
         {
-            return View();
+            database.Add(user);
+            ViewBag.SuccesMessage = "Konto zostało utworzone";
+            return View("Register", new User());
         }
     }
 }
