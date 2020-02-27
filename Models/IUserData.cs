@@ -10,8 +10,9 @@ namespace DahaimMVC.Models
     {
         IEnumerable<User> GetAll();
         User Get(int id);
-        void Add(User restaurant);
-        void Edit(User restaurant);
-        void Delete(User restaurant);
+        void Add(User user);
+        void Edit(User user);
+        void Delete(User user);
+        User GetLogin(User user);
     }
 }

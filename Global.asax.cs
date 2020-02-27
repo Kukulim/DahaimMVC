@@ -1,5 +1,6 @@
 using Autofac;
 using Autofac.Integration.Mvc;
+using DahaimMVC.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,12 +16,11 @@ namespace DahaimMVC
 
         protected void Application_Start()
         {
-
-            
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            ConteinerConfig.RegisterConfig();
         }
     }
 }

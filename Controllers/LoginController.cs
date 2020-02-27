@@ -9,10 +9,10 @@ namespace DahaimMVC.Controllers
 {
     public class LoginController : Controller
     {
-        UserDbContext database = new UserDbContext();
-        public LoginController()
+        private readonly IUserData database;       
+        public LoginController(IUserData database)
         {
-            //UserDbContext database = new UserDbContext();
+            this.database = database;
         }
         
         public ActionResult Index()
@@ -21,7 +21,7 @@ namespace DahaimMVC.Controllers
         }
         public ActionResult Authorize(User userModel)
         {
-            var UserDetails = database.User.Where(x => x.UserName == userModel.UserName && x.UserPassword == userModel.UserPassword).FirstOrDefault();
+            var UserDetails = database.GetLogin(userModel);           
             if (UserDetails == null)
             {
                 return View("Index");
