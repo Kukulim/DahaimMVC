@@ -51,7 +51,7 @@ h1 {
 
 .button1:hover {
   padding: 13px;
-  transform: rotateZ(5deg);
+  transform: rotateZ(1deg);
   overflow: visible;
 }
 
