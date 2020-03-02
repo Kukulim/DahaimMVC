@@ -1,4 +1,6 @@
-﻿<section class="kontakt">
+﻿@model DahaimMVC.Models.Message
+
+<section class="kontakt">
     <div id="kontaktlink"></div>
     <div class="conteiner padding" id="kontaktBox">
 
@@ -13,19 +15,33 @@
             </div>
 
             <div class="col text-center m-2">
-                <div class="boxKontakt">
-                    <ul>
-                        <li><h5 id="test">Imię:</h5></li>
-                        <li><input type="text"></li>
-                        <li><h5>email:</h5></li>
-                        <li><input type="email"></li>
-                        <li><h5>Wiadomość:</h5></li>
-                        <li><textarea name="" id="" cols="30" rows="5"></textarea></li>
-                    </ul>
-                    <input type="submit" value="Wyślij wiadomość" class="button1 mt-4" />
-                </div>
-            </div>
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
 
+                    <div class="boxKontakt">
+                        <ul>
+                            <li><h5 id="test">Imię:</h5></li>
+                            <li>
+                                @Html.EditorFor(model => model.MessageName, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.MessageName, "", new { @class = "text-danger" })
+                            </li>
+                            <li><h5>email:</h5></li>
+                            <li>
+                                @Html.EditorFor(model => model.MessageEmail, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.MessageEmail, "", new { @class = "text-danger" })
+                            </li>
+                            <li><h5>Wiadomość:</h5></li>
+                            <li>
+                                @Html.TextAreaFor(model => model.MessageText, 8, 50, new { htmlAttributes = new { @class = "form-control"} })
+                                @Html.ValidationMessageFor(model => model.MessageText, "", new { @class = "text-danger" })
+                            </li>
+                        </ul>
+                        <input type="submit" value="Wyślij wiadomość" class="button1 mt-4" />
+                    </div>
+                }
+                </div>
+                
             <div class="col text-center m-5 daneKontaktowe">
                 <h4>Dane kontaktowe:</h4>
                 <br>

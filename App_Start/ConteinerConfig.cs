@@ -16,6 +16,8 @@ namespace DahaimMVC
             builder.RegisterType<InMemoryUserData>().As<IUserData>().SingleInstance();
             builder.RegisterType<UserDbContext>().SingleInstance();
 
+            builder.RegisterType<InMemoryMessageData>().As<IMessageData>().SingleInstance();
+
             IContainer container = builder.Build();
 
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));

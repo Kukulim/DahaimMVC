@@ -47,6 +47,9 @@ namespace DahaimMVC.Controllers
         {
             database.Add(user);
             ViewBag.SuccesMessage = "Konto zostało utworzone";
+
+            ModelState.Clear();
+
             return View("Register", new User());
         }
     }

@@ -8,6 +8,11 @@ namespace DahaimMVC.Models
     public class InMemoryMessageData : IMessageData
     {
         List<Message> messages;
+
+        public InMemoryMessageData()
+        {
+            messages = new List<Message>();
+        }
         public void Add(Message mes)
         {
             messages.Add(mes);
