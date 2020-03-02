@@ -1,8 +1,15 @@
 ﻿@model IEnumerable<DahaimMVC.Models.User>
-
 @{
-    ViewBag.Title = "Index";
+    
+    if (Session["UserName"] == null)
+    {
+        Response.Redirect("~/Admin/Index");
+    }
 }
+@{
+    Layout = "~/Views/Shared/_LayoutControlPanel.cshtml";
+}
+
 
 <h2>Index control panel</h2>
 

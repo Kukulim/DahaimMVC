@@ -25,9 +25,15 @@ namespace DahaimMVC.Controllers
         {
             if ((adminModel.AdminName == admin.AdminName) && (adminModel.AdminPassword == admin.AdminPassword))
             {
+                Session["UserName"] = adminModel.AdminName;
                 return RedirectToAction("Index", "ControlPanel");
             }
             return View();
+        }
+        public ActionResult LogOut()
+        {
+            Session.Abandon();
+            return RedirectToAction("Index", "Admin");
         }
     }
 }
