@@ -14,5 +14,6 @@ namespace DahaimMVC.Models
         void Edit(User user);
         void Delete(User user);
         User GetLogin(User user);
+        User GetUserByName(User user);
     }
 }

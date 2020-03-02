@@ -7,49 +7,51 @@
     Layout = "~/Views/Shared/_LayoutLogin.cshtml";
 }
 
-<div class="container justify-content-center text-center">
-    <h2 class="m-4">Login:</h2>
-    <hr />
-    @using (Html.BeginForm("Authorize", "Login", FormMethod.Post))
-    {
-        @Html.AntiForgeryToken()
+    <div class="container justify-content-center text-center">
+        <h2 class="m-4">Login:</h2>
+        <h2 class="text-center text-danger m-4">@ViewBag.WrongPassword</h2>
+        <hr />
+        @using (Html.BeginForm("Authorize", "Login", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
 
-        <div class="col-md-4 text-center m-auto">
+            <div class="col-md-4 text-center m-auto">
 
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="form-group text-left">
-                @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group text-left">
+                    @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
 
-                <div class="col">
-                    @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                    <div class="col">
+                        @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group text-left">
+                    @Html.LabelFor(model => model.UserPassword, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col">
+                        @Html.EditorFor(model => model.UserPassword, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.UserPassword, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col">
+                        <input type="submit" value="Login" class="btn btn-dark m-1" />
+                        <input type="reset" value="Clear" class="btn btn-info m-1" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col">
+                        <div>Niemasz jeszcze konta zarejstruj się:</div>
+                        <div>@Html.ActionLink("Rejstracja", "Register", "Login", null, new { @class = "btn btn-danger m-1" })</div>
+                    </div>
                 </div>
             </div>
 
-            <div class="form-group text-left">
-                @Html.LabelFor(model => model.UserPassword, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col">
-                    @Html.EditorFor(model => model.UserPassword, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.UserPassword, "", new { @class = "text-danger" })
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-md-offset-2 col">
-                    <input type="submit" value="Login" class="btn btn-dark m-1" />
-                    <input type="reset" value="Clear" class="btn btn-info m-1" />
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-md-offset-2 col">
-                    <div>Niemasz jeszcze konta zarejstruj się:</div>
-                    <div>@Html.ActionLink("Rejstracja", "Register", "Login", null, new { @class = "btn btn-danger m-1" })</div>
-                </div>
-            </div>
-        </div>
-
-    }
-    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
-    <script src="~/Scripts/jquery.validate.min.js"></script>
-    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-</div>
+        }
+        <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+        <script src="~/Scripts/jquery.validate.min.js"></script>
+        <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    </div>

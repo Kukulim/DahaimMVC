@@ -24,7 +24,11 @@ namespace DahaimMVC.Controllers
             var UserDetails = database.GetLogin(userModel);           
             if (UserDetails == null)
             {
-                return View("Index");
+                ModelState.Clear();
+
+                ViewBag.WrongPassword = "Błędny login lub hasło";
+
+                return View("Index",new User());
             }
             else
             {
@@ -43,14 +47,22 @@ namespace DahaimMVC.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Register(User user)
+        public ActionResult Register(User userModel)
         {
-            database.Add(user);
-            ViewBag.SuccesMessage = "Konto zostało utworzone";
+            var UserDetails = database.GetUserByName(userModel);
+            if (UserDetails == null)
+            {
+                database.Add(userModel);
+                ViewBag.SuccesMessage = "Konto zostało utworzone";
 
-            ModelState.Clear();
+                ModelState.Clear();
 
-            return View("Register", new User());
+                return View("Register", new User());
+            }
+
+            ViewBag.LoginInUse = "Taki użytkownik jest już zarejstrowany";
+
+            return View("Register");
         }
     }
 }

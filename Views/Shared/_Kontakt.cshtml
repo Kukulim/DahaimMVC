@@ -33,15 +33,15 @@
                             </li>
                             <li><h5>Wiadomość:</h5></li>
                             <li>
-                                @Html.TextAreaFor(model => model.MessageText, 8, 50, new { htmlAttributes = new { @class = "form-control"} })
+                                @Html.TextAreaFor(model => model.MessageText, 8, 50, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.MessageText, "", new { @class = "text-danger" })
                             </li>
                         </ul>
                         <input type="submit" value="Wyślij wiadomość" class="button1 mt-4" />
                     </div>
                 }
-                </div>
-                
+            </div>
+
             <div class="col text-center m-5 daneKontaktowe">
                 <h4>Dane kontaktowe:</h4>
                 <br>
@@ -54,6 +54,9 @@
                 <h4>NIP: 573 342 43 23</h4>
             </div>
         </div>
+        <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+        <script src="~/Scripts/jquery.validate.min.js"></script>
+        <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
     </div>
 
 </section>

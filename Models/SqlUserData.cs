@@ -47,5 +47,10 @@ namespace DahaimMVC.Models
         {
             return database.User.Where(x => x.UserName == user.UserName && x.UserPassword == user.UserPassword).FirstOrDefault();
         }
+
+        public User GetUserByName(User user)
+        {
+            return database.User.Where(x => x.UserName == user.UserName).FirstOrDefault();
+        }
     }
 }
