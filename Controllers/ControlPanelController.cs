@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DahaimMVC.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +9,15 @@ namespace DahaimMVC.Controllers
 {
     public class ControlPanelController : Controller
     {
-        // GET: ControlPanel
+        private readonly IUserData database;
+        public ControlPanelController(IUserData database)
+        {
+            this.database = database;
+        }
         public ActionResult Index()
         {
-            return View();
+            var model = database.GetAll();
+            return View(model);
         }
     }
 }

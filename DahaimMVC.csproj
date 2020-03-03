@@ -337,8 +337,8 @@
     <Content Include="Views\Shared\_LayoutUserDetails.cshtml" />
     <Content Include="Views\Login\Register.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
-    <Content Include="Views\ControlPanel\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutControlPanel.cshtml" />
+    <Content Include="Views\ControlPanel\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

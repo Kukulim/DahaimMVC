@@ -17,6 +17,7 @@ namespace DahaimMVC.Models
         [Required]
         public string AdminName { get; set; }
         [Required]
+        [DataType(DataType.Password)]
         public string AdminPassword { get; set; }
     }
 }
