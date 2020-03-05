@@ -15,6 +15,7 @@
 
     <h2 class="m-4">Studenci:</h2>
     <hr />
+    <h3 class="text-center text-danger m-4">@TempData["Message"]</h3>
     <p>
         @Html.ActionLink("Create New", "Create")
     </p>
@@ -57,9 +58,9 @@
             @Html.DisplayFor(modelItem => item.LanguageLvl)
         </td>
         <td>
-            @Html.ActionLink("Edit", "UserEdit", new { id = item.UserId }) |
-            @Html.ActionLink("Details", "UserDetails", new { id = item.UserId }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.UserId })
+            @Html.ActionLink("Edycja", "UserEdit", new { id = item.UserId }) |
+            @Html.ActionLink("Szczegóły", "UserDetails", new { id = item.UserId }) |
+            @Html.ActionLink("Usuń", "UserDelete", new { id = item.UserId })
         </td>
     </tr>
         }

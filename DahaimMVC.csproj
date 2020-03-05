@@ -342,6 +342,7 @@
     <Content Include="Views\Shared\NotFound.cshtml" />
     <Content Include="Views\ControlPanel\UserDetails.cshtml" />
     <Content Include="Views\ControlPanel\UserEdit.cshtml" />
+    <Content Include="Views\ControlPanel\UserDelete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -41,8 +41,25 @@ namespace DahaimMVC.Controllers
         public ActionResult UserEdit(User model)
         {
             database.Edit(model);
-            //TempData["Message"] = "U sucsessful save restaurant in database";
+            TempData["Message"] = "Zapisano w bazie danych";
             return RedirectToAction("Index");
+        }
+        public ActionResult UserDelete(int id)
+        {
+            var model = database.Get(id);
+            if (model == null)
+            {
+                return View("Notfound");
+            }
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult UserDelete(User model)
+        {
+            database.Delete(model);
+            TempData["Message"] = "Student usuniety z bazy danych";
+            return RedirectToAction("Index");
+
         }
     }
 }
