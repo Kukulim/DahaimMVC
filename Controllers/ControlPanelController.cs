@@ -54,12 +54,35 @@ namespace DahaimMVC.Controllers
             return View(model);
         }
         [HttpPost]
-        public ActionResult UserDelete(User model)
+        public ActionResult UserDelete(int id, int? cos) //gdziesz widziałem jak to zrobić inaczej
         {
+            var model = database.Get(id);
             database.Delete(model);
             TempData["Message"] = "Student usuniety z bazy danych";
             return RedirectToAction("Index");
 
+        }
+        public ActionResult CreateUser()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult CreateUser(User userModel)
+        {
+            var UserDetails = database.GetUserByName(userModel);
+            if (UserDetails == null)
+            {
+                database.Add(userModel);
+                ViewBag.SuccesMessage = "Konto zostało utworzone";
+
+                ModelState.Clear();
+
+                return RedirectToAction("Index");
+            }
+
+            ViewBag.LoginInUse = "Taki użytkownik jest już zarejstrowany";
+
+            return View();
         }
     }
 }
