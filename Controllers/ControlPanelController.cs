@@ -19,5 +19,34 @@ namespace DahaimMVC.Controllers
             var model = database.GetAll();
             return View(model);
         }
+        public ActionResult UserDetails(int id)
+        {
+            var model = database.Get(id);
+            if (model == null)
+            {
+                return View("NotFound");
+            }
+            return View(model);
+        }
+        public ActionResult UserEdit(int id)
+        {
+            var model = database.Get(id);
+            if (model == null)
+            {
+                return View("Notfound");
+            }
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult UserEdit(User model)
+        {
+            if (ModelState.IsValid)
+            {
+                database.Edit(model);
+                //TempData["Message"] = "U sucsessful save restaurant in database";
+                return RedirectToAction("Index");
+            }
+            return View(model);
+        }
     }
 }

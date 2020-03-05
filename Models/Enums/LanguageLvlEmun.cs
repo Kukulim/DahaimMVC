@@ -7,6 +7,7 @@ namespace DahaimMVC.Models
 {
     public enum LanguageLvlEmun
     {
+        none,
         A1,
         A2,
         B1,

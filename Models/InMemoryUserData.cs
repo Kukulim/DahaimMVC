@@ -11,8 +11,7 @@ namespace DahaimMVC.Models
         public InMemoryUserData()
         {
             users = new List<User>() {
-                new User { UserName = "muser", UserPassword = "mpass" },
-                new User { UserName = "muser1", UserPassword = "mpass2" }
+                new User { UserName = "muser", UserPassword = "mpass", Name = "Lukasz", Subname = "Testowy", Email ="test@gmail.com", PhoneNumber ="123123123", LanguageLvl= LanguageLvlEmun.none},
             };
         }
         public void Add(User user)
@@ -33,6 +32,11 @@ namespace DahaimMVC.Models
             {
                 userEdit.UserName = user.UserName;
                 userEdit.UserPassword = user.UserPassword;
+                userEdit.Name = user.Name;
+                userEdit.Subname = user.Subname;
+                userEdit.PhoneNumber = user.PhoneNumber;
+                userEdit.LanguageLvl = user.LanguageLvl;
+                userEdit.Email = user.Email;
             }
         }
 
