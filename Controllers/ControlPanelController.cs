@@ -40,13 +40,9 @@ namespace DahaimMVC.Controllers
         [HttpPost]
         public ActionResult UserEdit(User model)
         {
-            if (ModelState.IsValid)
-            {
-                database.Edit(model);
-                //TempData["Message"] = "U sucsessful save restaurant in database";
-                return RedirectToAction("Index");
-            }
-            return View(model);
+            database.Edit(model);
+            //TempData["Message"] = "U sucsessful save restaurant in database";
+            return RedirectToAction("Index");
         }
     }
 }

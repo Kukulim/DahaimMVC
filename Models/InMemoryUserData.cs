@@ -31,7 +31,6 @@ namespace DahaimMVC.Models
             if (userEdit != null)
             {
                 userEdit.UserName = user.UserName;
-                userEdit.UserPassword = user.UserPassword;
                 userEdit.Name = user.Name;
                 userEdit.Subname = user.Subname;
                 userEdit.PhoneNumber = user.PhoneNumber;
