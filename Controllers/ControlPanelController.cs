@@ -10,13 +10,18 @@ namespace DahaimMVC.Controllers
     public class ControlPanelController : Controller
     {
         private readonly IUserData database;
-        public ControlPanelController(IUserData database)
+        private readonly IMessageData messageData;
+
+        public ControlPanelController(IUserData database, IMessageData messageData)
         {
             this.database = database;
+            this.messageData = messageData;
         }
         public ActionResult Index()
         {
             var model = database.GetAll();
+            int unreaded = messageData.UnReaded();
+            TempData["Unreaded"] = unreaded;
             return View(model);
         }
         public ActionResult UserDetails(int id)

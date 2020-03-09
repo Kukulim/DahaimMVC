@@ -16,24 +16,30 @@ namespace DahaimMVC.Models
         public void Add(Message mes)
         {
             messages.Add(mes);
-            mes.Id = messages.Max(r => r.Id) + 1;
+            mes.Id = messages.Max(m => m.Id) + 1;
             mes.Readed = 0;
             mes.SendTime = DateTime.Now;
         }
 
         public void Delete(Message mes)
         {
-            messages.RemoveAll(r => r.Id == mes.Id);
+            messages.RemoveAll( m => m.Id == mes.Id);
         }
 
         public Message Get(int id)
         {
-            return messages.FirstOrDefault(e => e.Id == id);
+            return messages.FirstOrDefault( m => m.Id == id );
         }
 
         public IEnumerable<Message> GetAll()
         {
-            return messages.OrderBy(r => r.SendTime);
+            return messages.OrderBy( m => m.SendTime );
+        }
+
+        public int UnReaded()
+        {
+            int wynik = messages.Where( m => m.Readed==0 ).Count();
+            return wynik;
         }
     }
 }

@@ -12,5 +12,7 @@ namespace DahaimMVC.Models
         Message Get(int id);
         void Add(Message user);
         void Delete(Message user);
+
+        int UnReaded();
     }
 }
