@@ -89,5 +89,12 @@ namespace DahaimMVC.Controllers
 
             return View();
         }
+        public ActionResult MessageIndex()
+        {
+            var model = messageData.GetAll();
+            int unreaded = messageData.UnReaded();
+            TempData["Unreaded"] = unreaded;
+            return View(model);
+        }
     }
 }

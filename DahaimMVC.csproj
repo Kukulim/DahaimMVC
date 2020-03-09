@@ -344,6 +344,7 @@
     <Content Include="Views\ControlPanel\UserEdit.cshtml" />
     <Content Include="Views\ControlPanel\UserDelete.cshtml" />
     <Content Include="Views\ControlPanel\CreateUser.cshtml" />
+    <Content Include="Views\ControlPanel\MessageIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
