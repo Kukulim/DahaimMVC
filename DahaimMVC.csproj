@@ -149,7 +149,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
-    <Compile Include="Areas\Admin\Controllers\testController.cs" />
     <Compile Include="Components\HtmlExtCommon.cs" />
     <Compile Include="Components\HtmlExtImage.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
@@ -197,7 +196,6 @@
     <Content Include="Content\images\opinia3.jpg" />
     <Content Include="Content\images\teacher.jpg" />
     <Content Include="Content\images\welcomebook.jpg" />
-    <Content Include="Content\Site.css" />
     <Content Include="Content\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -227,7 +225,8 @@
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Admin\Views\test\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ControlPanel\MessageDetails.cshtml" />
+    <Content Include="Areas\Admin\Views\ControlPanel\MessageDelete.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

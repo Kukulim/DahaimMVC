@@ -4,7 +4,7 @@
     Layout = "~/Areas/Admin/Views/Shared/_LayoutControlPanel.cshtml";
 }
     <div class="container">
-        <h2>Skrzynka:</h2>
+        <h2 class="m-4">Skrzynka:</h2>
 
 
         <table class="table">
@@ -14,9 +14,6 @@
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.MessageEmail)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.MessageText)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.SendTime)
@@ -34,21 +31,17 @@
                         @Html.DisplayFor(modelItem => item.MessageEmail)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.MessageText)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Readed)
-                    </td>
-                    <td>
                         @Html.DisplayFor(modelItem => item.SendTime)
                     </td>
                     <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                        @Html.ActionLink("Details", "MessageDetails", new { id = item.Id }) |
+                        @Html.ActionLink("Delete", "MessageDelete", new { id = item.Id })
                     </td>
                 </tr>
             }
 
         </table>
+        <div class="text-center m-3">
+            @Html.ActionLink("Powrót do Panelu Zarządzania", "Index", "ControlPanel", null, new { @class = "btn btn-dark m-1" })
+        </div>
     </div>

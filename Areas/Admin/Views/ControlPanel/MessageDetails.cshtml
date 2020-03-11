@@ -1,0 +1,58 @@
+﻿@model DahaimMVC.Models.Message
+
+@{
+    ViewBag.Title = "MessageDetails";
+}
+
+<h2>MessageDetails</h2>
+
+<div>
+    <h4>Message</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MessageName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MessageName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MessageEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MessageEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MessageText)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MessageText)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Readed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Readed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SendTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SendTime)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
