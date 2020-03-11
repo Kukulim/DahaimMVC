@@ -4,12 +4,12 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace DahaimMVC.Models
+namespace DahaimMVC.Areas.Admin
 {
-    public class Admin
+    public class Administrator
     {
 
-        public Admin()
+        public Administrator()
         {
             AdminName = "admin";
             AdminPassword = "admin";

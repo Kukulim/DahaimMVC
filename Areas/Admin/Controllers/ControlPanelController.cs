@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace DahaimMVC.Controllers
+namespace DahaimMVC.Areas.Admin.Controllers
 {
     public class ControlPanelController : Controller
     {

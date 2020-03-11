@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title> Dahaim #1 </title>
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="~/Content/style.css">
+</head>
+<body>
+    <header>
+        <div class="conteiner">
+            <nav class="navbar navbar-expand-lg text-center">
+                <a class="navbar-brand" href="#index.html"><h1 id="logo"><span id="logoFirst">d</span>ahaim</h1></a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <h2 class="text-center text-info ml-5">@ViewBag.SuccesMessageSend</h2>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto menu">
+                        <li class="nav-item">
+                            @Html.ActionLink("Dla Studenta", "Index", "Login", null, new { @class = "nav-link  ml-3" })
+                        </li>
+
+                        <li class="nav-item">
+                            @Html.ActionLink("Strona główna", "index", "home", null, new { @class = "nav-link  ml-3" })
+
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link ml-3" href="#omnielink">o mnie</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link  ml-3" href="#ofertalink">oferta</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link  ml-3" href="#kontaktlink">Kontakt</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </nav>
+        </div>
+    </header>
+
+            @RenderBody()
+
+
+
+    <footer>
+        <div class="conteiner">
+            <p>Dahaim copywritr &copy 2020 | Mady by Łukasz Bekus</p>
+        </div>
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+

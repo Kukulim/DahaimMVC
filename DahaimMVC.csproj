@@ -149,6 +149,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\testController.cs" />
     <Compile Include="Components\HtmlExtCommon.cs" />
     <Compile Include="Components\HtmlExtImage.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
@@ -168,7 +169,7 @@
       <DependentUpon>202002271643536_confirmpass.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Admin\Admin.cs" />
+    <Compile Include="Areas\Admin\Models\Administrator.cs" />
     <Compile Include="Models\IMessageData.cs" />
     <Compile Include="Models\InMemoryMessageData.cs" />
     <Compile Include="Models\InMemoryUserData.cs" />
@@ -225,6 +226,8 @@
     <Content Include="Scripts\esm\popper-utils.js.map" />
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\test\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -352,7 +355,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Data\" />
     <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>

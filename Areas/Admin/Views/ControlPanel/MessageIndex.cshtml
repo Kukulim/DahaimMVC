@@ -1,14 +1,12 @@
 ﻿@model IEnumerable<DahaimMVC.Models.Message>
 
 @{
-    Layout = "~/Views/Shared/_LayoutControlPanel.cshtml";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutControlPanel.cshtml";
 }
     <div class="container">
         <h2>Skrzynka:</h2>
 
-        <p>
-            @Html.ActionLink("Create New", "Create")
-        </p>
+
         <table class="table">
             <tr>
                 <th>
@@ -19,9 +17,6 @@
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.MessageText)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Readed)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.SendTime)
