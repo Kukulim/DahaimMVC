@@ -98,12 +98,15 @@ namespace DahaimMVC.Areas.Admin.Controllers
         }
         public ActionResult MessageDetails(int id)
         {
+          
             {
                 var model = messageData.Get(id);
                 if (model == null)
                 {
                     return View("NotFound");
                 }
+                int unreaded = messageData.UnReaded();
+                TempData["Unreaded"] = unreaded;
                 return View(model);
             }
         }
@@ -114,6 +117,8 @@ namespace DahaimMVC.Areas.Admin.Controllers
             {
                 return View("Notfound");
             }
+            int unreaded = messageData.UnReaded();
+            TempData["Unreaded"] = unreaded;
             return View(model);
         }
         [HttpPost]

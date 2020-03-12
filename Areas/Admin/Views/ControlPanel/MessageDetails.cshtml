@@ -3,56 +3,47 @@
 @{
     ViewBag.Title = "MessageDetails";
 }
+    <div class="container">
+        <h2 class="m-3">Szczegóły wiadomości:</h2>
 
-<h2>MessageDetails</h2>
+        <div>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.MessageName)
+                </dt>
 
-<div>
-    <h4>Message</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.MessageName)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.MessageName)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.MessageName)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.MessageEmail)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.MessageEmail)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.MessageEmail)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.MessageEmail)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.MessageText)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.MessageText)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.MessageText)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.MessageText)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.SendTime)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Readed)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.SendTime)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Readed)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.SendTime)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.SendTime)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+            </dl>
+        </div>
+        <div class="text-center m-3">
+            @Html.ActionLink("Powrót do skrzynki", "MessageIndex", "ControlPanel", null, new { @class = "btn btn-info m-1" })
+        </div>
+    </div>
