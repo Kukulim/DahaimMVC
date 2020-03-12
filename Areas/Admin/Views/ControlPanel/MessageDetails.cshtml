@@ -44,6 +44,9 @@
             </dl>
         </div>
         <div class="text-center m-3">
-            @Html.ActionLink("Powrót do skrzynki", "MessageIndex", "ControlPanel", null, new { @class = "btn btn-info m-1" })
+            @Html.ActionLink("Powrót do skrzynki", "MessageIndex", "ControlPanel", null, new { @class = "btn btn-dark m-1" })
+        </div>
+        <div class="text-center m-3">
+            @Html.ActionLink("Usuń", "MessageDelete", new { id = Model.Id }, new { @class = "btn btn-danger m-1" })
         </div>
     </div>

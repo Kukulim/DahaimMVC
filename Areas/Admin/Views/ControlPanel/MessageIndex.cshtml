@@ -34,8 +34,8 @@
                         @Html.DisplayFor(modelItem => item.SendTime)
                     </td>
                     <td>
-                        @Html.ActionLink("Details", "MessageDetails", new { id = item.Id }) |
-                        @Html.ActionLink("Delete", "MessageDelete", new { id = item.Id })
+                        @Html.ActionLink("Szczegóły", "MessageDetails", new { id = item.Id }) |
+                        @Html.ActionLink("Usuń", "MessageDelete", new { id = item.Id })
                     </td>
                 </tr>
             }

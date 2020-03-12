@@ -72,15 +72,12 @@
 
         </dl>
 
+        <div class="text-center m-3">
+            @Html.ActionLink("Edytuj", "UserEdit", new { id = Model.UserId }, new { @class = "btn btn-info m-1" })
+        </div>
 
         <div class="text-center">
             @Html.ActionLink("Powrót do listy studentów", "Index", "ControlPanel", null, new { @class = "btn btn-dark m-1" })
-        </div>
-
-        <div class="text-center m-3">
-            @Html.ActionLink("Edytuj", "UserEdit", new { id = Model.UserId })
-
-            @*new { @class = "btn btn-dark m-1", id = Model.UserId })*@
         </div>
 
     </div>

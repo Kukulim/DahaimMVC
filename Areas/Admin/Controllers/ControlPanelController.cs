@@ -100,7 +100,7 @@ namespace DahaimMVC.Areas.Admin.Controllers
         {
           
             {
-                var model = messageData.Get(id);
+                var model = messageData.GetAndRead(id);
                 if (model == null)
                 {
                     return View("NotFound");

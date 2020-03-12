@@ -36,6 +36,13 @@ namespace DahaimMVC.Models
             return messages.OrderBy( m => m.SendTime );
         }
 
+        public Message GetAndRead(int id)
+        {
+            Message mes = messages.FirstOrDefault(m => m.Id == id);
+            mes.Readed = 1;
+            return mes;
+        }
+
         public int UnReaded()
         {
             int wynik = messages.Where( m => m.Readed==0 ).Count();
