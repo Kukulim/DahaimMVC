@@ -10,31 +10,30 @@
 
 
             <li class="nav-item">
-                @Html.ActionLink("A0", "A0", "UserDetails", null, new { @class = "nav-link  ml-3" })
+                @Html.ActionLink("A0", "A0", "UserDetails", null, new { @class = (Convert.ToInt32(Session["UserLvl"]) >= 1 ? "nav-link  ml-3" : "nav-link  ml-3 disabled") })
             </li>
 
             <li class="nav-item">
-                @Html.ActionLink("A1", "A1", "UserDetails", null, new { @class = "nav-link  ml-3" })
+                @Html.ActionLink("A1", "A1", "UserDetails", null, new { @class = (Convert.ToInt32(Session["UserLvl"]) >= 2 ? "nav-link  ml-3" : "nav-link  ml-3 disabled") })
             </li>
 
             <li class="nav-item">
-                @Html.ActionLink("A2", "A2", "UserDetails", null, new { @class = "nav-link  ml-3" })
+                @Html.ActionLink("A2", "A2", "UserDetails", null, new { @class = (Convert.ToInt32(Session["UserLvl"]) >= 3 ? "nav-link  ml-3" : "nav-link  ml-3 disabled") })
+
+            <li class="nav-item">
+                @Html.ActionLink("B1", "B1", "UserDetails", null, new { @class = (Convert.ToInt32(Session["UserLvl"]) >= 4 ? "nav-link  ml-3" : "nav-link  ml-3 disabled") })
             </li>
 
             <li class="nav-item">
-                @Html.ActionLink("B1", "B1", "UserDetails", null, new { @class = "nav-link  ml-3" })
+                @Html.ActionLink("B2", "B2", "UserDetails", null, new { @class = (Convert.ToInt32(Session["UserLvl"]) >= 5 ? "nav-link  ml-3" : "nav-link  ml-3 disabled") })
             </li>
 
             <li class="nav-item">
-                @Html.ActionLink("B2", "B2", "UserDetails", null, new { @class = "nav-link  ml-3" })
+                @Html.ActionLink("C1", "C1", "UserDetails", null, new { @class = (Convert.ToInt32(Session["UserLvl"]) >= 6 ? "nav-link  ml-3" : "nav-link  ml-3 disabled") })
             </li>
 
             <li class="nav-item">
-                @Html.ActionLink("C1", "C1", "UserDetails", null, new { @class = "nav-link  ml-3" })
-            </li>
-
-            <li class="nav-item">
-                @Html.ActionLink("C2", "C2", "UserDetails", null, new { @class = "nav-link  ml-3" })
+                @Html.ActionLink("C2", "C2", "UserDetails", null, new { @class = (Convert.ToInt32(Session["UserLvl"]) >= 7 ? "nav-link  ml-3" : "nav-link  ml-3 disabled") })
             </li>
         </ul>
     </div>
