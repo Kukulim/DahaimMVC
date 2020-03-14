@@ -126,8 +126,7 @@ namespace DahaimMVC.Areas.Admin.Controllers
         {
             var model = messageData.Get(id);
             messageData.Delete(model);
-            return RedirectToAction("Index");
-
+            return RedirectToAction("MessageIndex");
         }
     }
 }

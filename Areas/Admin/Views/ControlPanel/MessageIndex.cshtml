@@ -24,13 +24,13 @@
             @foreach (var item in Model)
             {
                 <tr>
-                    <td>
+                    <td class=@(item.Readed == 0 ? "font-weight-bold" : "font-weight-normal")>
                         @Html.DisplayFor(modelItem => item.MessageName)
                     </td>
-                    <td>
+                    <td class=@(item.Readed == 0 ? "font-weight-bold" : "font-weight-normal")>
                         @Html.DisplayFor(modelItem => item.MessageEmail)
                     </td>
-                    <td>
+                    <td class=@(item.Readed == 0 ? "font-weight-bold" : "font-weight-normal")>
                         @Html.DisplayFor(modelItem => item.SendTime)
                     </td>
                     <td>
