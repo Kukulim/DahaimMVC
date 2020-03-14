@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    if (Session["UserId"] == null)
+    {
+        Response.Redirect("~/Login/Index");
+    }
+}
+@{
+    Layout = "~/Views/Shared/_LayoutUserDetails.cshtml";
+}
+<div class="container">
+    <h2 class="m-3 text-info">Proszę poczekać na aktywację konta.</h2>
+</div>
