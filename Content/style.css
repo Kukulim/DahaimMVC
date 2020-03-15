@@ -20,7 +20,8 @@ body {
 .conteiner {
   width: 80%;
   margin: auto;
-  overflow: hidden;
+  overflow:hidden;
+
 }
 a {
   text-decoration: none;

@@ -21,7 +21,7 @@
         }
     }
     <header>
-        <div class="conteiner">
+        <div class="container">
             <nav class="navbar navbar-expand-lg text-center">
                 <a class="navbar-brand" href="#index.html"><h1 id="logo"><span id="logoFirst">d</span>ahaim</h1></a>
 
@@ -34,8 +34,16 @@
 
                         <li class="nav-link  ml-3" style="color:burlywood">Witaj, @Session["UserName"].ToString() !</li>
 
-                        <li class="nav-item">
-                            @Html.ActionLink("Logout", "LogOut", "Login", null, new { @class = "nav-link  ml-3" })
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Profil
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                @Html.ActionLink("Edytuj", "LogOut", "Login", null, new { @class = "nav-link  ml-3" })
+                                @Html.ActionLink("Usuń", "LogOut", "Login", null, new { @class = "nav-link  ml-3" })
+                                <div class="dropdown-divider"></div>
+                                @Html.ActionLink("Wyloguj", "LogOut", "Login", null, new { @class = "nav-link  ml-3" })
+                            </div>
                         </li>
 
                         <li class="nav-item">
@@ -53,11 +61,11 @@
 
 
 
-    <footer>
-        <div class="conteiner">
-            <p>Dahaim copywritr &copy 2020 | Mady by Łukasz Bekus</p>
-        </div>
-    </footer>
+<footer>
+    <div class="conteiner">
+        <p>Dahaim copywritr &copy 2020 | Mady by Łukasz Bekus</p>
+    </div>
+</footer>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
