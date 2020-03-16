@@ -148,10 +148,11 @@
     <Compile Include="App_Start\ConteinerConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Components\HtmlExtCommon.cs" />
     <Compile Include="Components\HtmlExtImage.cs" />
-    <Compile Include="Controllers\AdminController.cs" />
-    <Compile Include="Controllers\ControlPanelController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ControlPanelController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\UserDetailsController.cs" />
@@ -167,13 +168,13 @@
       <DependentUpon>202002271643536_confirmpass.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Admin\Admin.cs" />
-    <Compile Include="Models\IMessageData.cs" />
-    <Compile Include="Models\InMemoryMessageData.cs" />
+    <Compile Include="Areas\Admin\Models\Administrator.cs" />
+    <Compile Include="Areas\Admin\Models\IMessageData.cs" />
+    <Compile Include="Areas\Admin\Models\InMemoryMessageData.cs" />
     <Compile Include="Models\InMemoryUserData.cs" />
     <Compile Include="Models\IUserData.cs" />
     <Compile Include="Models\Enums\LanguageLvlEmun.cs" />
-    <Compile Include="Models\Message.cs" />
+    <Compile Include="Areas\Admin\Models\Message.cs" />
     <Compile Include="Models\SqlUserData.cs" />
     <Compile Include="Models\UserDbContext.cs" />
     <Compile Include="Models\User.cs" />
@@ -221,6 +222,12 @@
     <Content Include="Scripts\esm\popper.js.map" />
     <Content Include="Scripts\esm\popper-utils.min.js.map" />
     <Content Include="Scripts\esm\popper-utils.js.map" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\ControlPanel\MessageDetails.cshtml" />
+    <Content Include="Areas\Admin\Views\ControlPanel\MessageDelete.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_LayoutControlPanelNoMessage.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -336,19 +343,29 @@
     <Content Include="Views\UserDetails\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutUserDetails.cshtml" />
     <Content Include="Views\Login\Register.cshtml" />
-    <Content Include="Views\Admin\Index.cshtml" />
-    <Content Include="Views\Shared\_LayoutControlPanel.cshtml" />
-    <Content Include="Views\ControlPanel\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_LayoutControlPanel.cshtml" />
+    <Content Include="Areas\Admin\Views\ControlPanel\Index.cshtml" />
     <Content Include="Views\Shared\NotFound.cshtml" />
-    <Content Include="Views\ControlPanel\UserDetails.cshtml" />
-    <Content Include="Views\ControlPanel\UserEdit.cshtml" />
-    <Content Include="Views\ControlPanel\UserDelete.cshtml" />
-    <Content Include="Views\ControlPanel\CreateUser.cshtml" />
-    <Content Include="Views\ControlPanel\MessageIndex.cshtml" />
+    <Content Include="Areas\Admin\Views\ControlPanel\UserDetails.cshtml" />
+    <Content Include="Areas\Admin\Views\ControlPanel\UserEdit.cshtml" />
+    <Content Include="Areas\Admin\Views\ControlPanel\UserDelete.cshtml" />
+    <Content Include="Areas\Admin\Views\ControlPanel\CreateUser.cshtml" />
+    <Content Include="Areas\Admin\Views\ControlPanel\MessageIndex.cshtml" />
+    <Content Include="Views\UserDetails\NoAuthorization.cshtml" />
+    <Content Include="Views\UserDetails\A0.cshtml" />
+    <Content Include="Views\UserDetails\A1.cshtml" />
+    <Content Include="Views\UserDetails\A2.cshtml" />
+    <Content Include="Views\UserDetails\B1.cshtml" />
+    <Content Include="Views\UserDetails\B2.cshtml" />
+    <Content Include="Views\UserDetails\C1.cshtml" />
+    <Content Include="Views\UserDetails\C2.cshtml" />
+    <Content Include="Views\UserDetails\_SecNavBar.cshtml" />
+    <Content Include="Views\UserDetails\UserDelete.cshtml" />
+    <Content Include="Views\UserDetails\UserEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

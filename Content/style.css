@@ -9,9 +9,7 @@
   --lightBlue: #468c98;
   --darkBlue: #101419;
 }
-li{
-  list-style-type: none;
-}
+
 /* styles: */
 body {
   margin: 0;
@@ -22,12 +20,13 @@ body {
 .conteiner {
   width: 80%;
   margin: auto;
-  overflow: hidden;
+  overflow:hidden;
 }
+
 a {
-  text-decoration: none;
-  margin: 0;
-  padding: 0;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
 }
 ul {
   margin: 0;
@@ -36,6 +35,10 @@ ul {
 h1 {
   margin: 0;
   padding: 0;
+}
+li {
+    text-decoration: none;
+    list-style: none;
 }
 
 .button1 {
@@ -55,7 +58,7 @@ h1 {
   overflow: visible;
 }
 
-/* Hedder: */
+ /*Hedder:*/ 
 header {
   background: var(--darkBlue);
   min-height: 70px;
@@ -86,7 +89,6 @@ header {
   background-color: var(--lightBlue);
   border-radius: 5px;
   color: var(--darkBlue);
-  font-weight: 700;
 }
 #logoFirst {
   color: var(--lightBlue);
@@ -205,4 +207,7 @@ footer {
   font-size: 14px;
 }
 }
-/* UserDetails Layout page */
+
+.dropdown-menu {
+    background: var(--darkBlue);
+}

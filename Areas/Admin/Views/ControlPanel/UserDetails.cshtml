@@ -1,0 +1,84 @@
+﻿@model DahaimMVC.Models.User
+
+@{
+    ViewBag.Title = "UserDetails";
+}
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutControlPanelNoMessage.cshtml";
+}
+
+
+<div class="container">
+    <h2 class="m-4 text-center">Szczegóły:</h2>
+
+    <div class="col-md-4 m-auto">
+
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.LanguageLvl)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.LanguageLvl)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.UserName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UserName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UserPassword)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UserPassword)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Subname)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Subname)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PhoneNumber)
+            </dd>
+
+        </dl>
+
+        <div class="text-center m-3">
+            @Html.ActionLink("Edytuj", "UserEdit", new { id = Model.UserId }, new { @class = "btn btn-info m-1" })
+        </div>
+
+        <div class="text-center">
+            @Html.ActionLink("Powrót do listy studentów", "Index", "ControlPanel", null, new { @class = "btn btn-dark m-1" })
+        </div>
+
+    </div>
+</div>

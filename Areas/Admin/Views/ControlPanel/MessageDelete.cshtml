@@ -1,0 +1,62 @@
+﻿@model DahaimMVC.Models.Message
+
+@{
+    ViewBag.Title = "MessageDelete";
+}
+
+    <div class="container">
+        <h2 class="m-4 text-center">Usuwanie wiadomości:</h2>
+
+        <h3 class="text-danger text-center">Czy napewno chcesz usunąć wiadomość ?</h3>
+
+        <div>
+
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.MessageName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.MessageName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.MessageEmail)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.MessageEmail)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.MessageText)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.MessageText)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.SendTime)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.SendTime)
+                </dd>
+
+            </dl>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color m-3">
+                    <input type="submit" value="Usuń" class="btn btn-danger m-1" />
+                </div>
+                <div class="text-center m-3">
+                    @Html.ActionLink("Powrót do skrzynki", "MessageIndex", "ControlPanel", null, new { @class = "btn btn-dark m-1" })
+                </div>
+            }
+        </div>
+    </div>

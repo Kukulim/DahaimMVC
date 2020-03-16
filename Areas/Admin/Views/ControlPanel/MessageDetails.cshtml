@@ -1,0 +1,52 @@
+﻿@model DahaimMVC.Models.Message
+
+@{
+    ViewBag.Title = "MessageDetails";
+}
+    <div class="container">
+        <h2 class="m-3">Szczegóły wiadomości:</h2>
+
+        <div>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.MessageName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.MessageName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.MessageEmail)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.MessageEmail)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.MessageText)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.MessageText)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.SendTime)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.SendTime)
+                </dd>
+
+            </dl>
+        </div>
+        <div class="text-center m-3">
+            @Html.ActionLink("Powrót do skrzynki", "MessageIndex", "ControlPanel", null, new { @class = "btn btn-dark m-1" })
+        </div>
+        <div class="text-center m-3">
+            @Html.ActionLink("Usuń", "MessageDelete", new { id = Model.Id }, new { @class = "btn btn-danger m-1" })
+        </div>
+    </div>

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace DahaimMVC.Controllers
+namespace DahaimMVC.Areas.Admin.Controllers
 {
     public class ControlPanelController : Controller
     {
@@ -95,6 +95,38 @@ namespace DahaimMVC.Controllers
             int unreaded = messageData.UnReaded();
             TempData["Unreaded"] = unreaded;
             return View(model);
+        }
+        public ActionResult MessageDetails(int id)
+        {
+          
+            {
+                var model = messageData.GetAndRead(id);
+                if (model == null)
+                {
+                    return View("NotFound");
+                }
+                int unreaded = messageData.UnReaded();
+                TempData["Unreaded"] = unreaded;
+                return View(model);
+            }
+        }
+        public ActionResult MessageDelete(int id)
+        {
+            var model = messageData.Get(id);
+            if (model == null)
+            {
+                return View("Notfound");
+            }
+            int unreaded = messageData.UnReaded();
+            TempData["Unreaded"] = unreaded;
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult MessageDelete(int id, int? cos) //gdziesz widziałem jak to zrobić inaczej
+        {
+            var model = messageData.Get(id);
+            messageData.Delete(model);
+            return RedirectToAction("MessageIndex");
         }
     }
 }

@@ -34,6 +34,7 @@ namespace DahaimMVC.Controllers
             {
                 Session["UserId"] = UserDetails.UserId;
                 Session["UserName"] = UserDetails.UserName;
+                Session["UserLvl"] = UserDetails.LanguageLvl;
                 return RedirectToAction("Index", "UserDetails");
             }
         }

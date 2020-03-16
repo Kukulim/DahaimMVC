@@ -5,15 +5,15 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace DahaimMVC.Controllers
+namespace DahaimMVC.Areas.Admin.Controllers
 {
     public class AdminController : Controller
     {
-        private Admin admin;
+        private Administrator admin;
 
         public AdminController()
         {
-            admin =  new Admin();
+            admin =  new Administrator();
         }
 
         public ActionResult Index()
@@ -21,7 +21,7 @@ namespace DahaimMVC.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Index(Admin adminModel)
+        public ActionResult Index(Administrator adminModel)
         {
             if ((adminModel.AdminName == admin.AdminName) && (adminModel.AdminPassword == admin.AdminPassword))
             {

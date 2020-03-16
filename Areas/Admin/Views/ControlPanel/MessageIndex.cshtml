@@ -1,0 +1,47 @@
+﻿@model IEnumerable<DahaimMVC.Models.Message>
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutControlPanel.cshtml";
+}
+    <div class="container">
+        <h2 class="m-4">Skrzynka:</h2>
+
+
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.MessageName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MessageEmail)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SendTime)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class=@(item.Readed == 0 ? "font-weight-bold" : "font-weight-normal")>
+                        @Html.DisplayFor(modelItem => item.MessageName)
+                    </td>
+                    <td class=@(item.Readed == 0 ? "font-weight-bold" : "font-weight-normal")>
+                        @Html.DisplayFor(modelItem => item.MessageEmail)
+                    </td>
+                    <td class=@(item.Readed == 0 ? "font-weight-bold" : "font-weight-normal")>
+                        @Html.DisplayFor(modelItem => item.SendTime)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Szczegóły", "MessageDetails", new { id = item.Id }) |
+                        @Html.ActionLink("Usuń", "MessageDelete", new { id = item.Id })
+                    </td>
+                </tr>
+            }
+
+        </table>
+        <div class="text-center m-3">
+            @Html.ActionLink("Powrót do Panelu Zarządzania", "Index", "ControlPanel", null, new { @class = "btn btn-dark m-1" })
+        </div>
+    </div>

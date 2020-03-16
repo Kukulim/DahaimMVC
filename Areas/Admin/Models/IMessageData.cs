@@ -10,6 +10,7 @@ namespace DahaimMVC.Models
     {
         IEnumerable<Message> GetAll();
         Message Get(int id);
+        Message GetAndRead(int id);
         void Add(Message user);
         void Delete(Message user);
 
