@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DahaimMVC.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,12 @@ namespace DahaimMVC.Controllers
 {
     public class UserDetailsController : Controller
     {
+        private readonly IUserData database;
+
+        public UserDetailsController(IUserData database)
+        {
+            this.database = database;
+        }
         // GET: UserDetails
         public ActionResult Index()
         {
@@ -48,6 +55,28 @@ namespace DahaimMVC.Controllers
         public ActionResult C2()
         {
             return View();
+        }
+        public ActionResult UserDelete()
+        {
+            int identy = Convert.ToInt32(Session["UserId"]);
+            var model = database.Get(identy);
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult UserDelete(User user)
+        {
+            int identy = Convert.ToInt32(Session["UserId"]);
+            var model = database.Get(identy);
+
+            if (model.UserPassword == user.UserPassword)
+            {
+                database.Delete(model);
+                TempData["Usunieto"] = "Konto usunięte";
+                Session.Clear();
+                return RedirectToAction("Index", "Home");
+            }
+            TempData["BadPass"] = "Błędne hasło";
+            return RedirectToAction("UserDelete");
         }
     }
 }

@@ -21,12 +21,12 @@ body {
   width: 80%;
   margin: auto;
   overflow:hidden;
-
 }
+
 a {
-  text-decoration: none;
-  margin: 0;
-  padding: 0;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
 }
 ul {
   margin: 0;
@@ -208,3 +208,6 @@ footer {
 }
 }
 
+.dropdown-menu {
+    background: var(--darkBlue);
+}
