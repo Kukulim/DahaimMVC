@@ -30,7 +30,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.LanguageLvl, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EnumDropDownListFor(model => model.LanguageLvl, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.EnumDropDownListFor(model => model.LanguageLvl, new { @class = "form-control" } )
                     @Html.ValidationMessageFor(model => model.LanguageLvl, "", new { @class = "text-danger" })
                 </div>
             </div>
