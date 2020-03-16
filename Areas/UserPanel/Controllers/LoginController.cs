@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace DahaimMVC.Controllers
+namespace DahaimMVC.Areas.UserPanel.Controllers
 {
     public class LoginController : Controller
     {
@@ -64,6 +64,10 @@ namespace DahaimMVC.Controllers
             ViewBag.LoginInUse = "Taki użytkownik jest już zarejstrowany";
 
             return View("Register");
+        }
+        public ActionResult Register2()
+        {
+            return View();
         }
     }
 }

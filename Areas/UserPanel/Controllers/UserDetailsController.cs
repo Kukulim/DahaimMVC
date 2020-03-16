@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace DahaimMVC.Controllers
+namespace DahaimMVC.Areas.UserPanel.Controllers
 {
     public class UserDetailsController : Controller
     {
@@ -73,7 +73,7 @@ namespace DahaimMVC.Controllers
                 database.Delete(model);
                 TempData["Usunieto"] = "Konto usunięte";
                 Session.Clear();
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Home", new { area = "" });
             }
             TempData["BadPass"] = "Błędne hasło";
             return RedirectToAction("UserDelete");

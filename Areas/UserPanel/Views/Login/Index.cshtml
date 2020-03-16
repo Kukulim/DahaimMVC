@@ -4,7 +4,7 @@
     ViewBag.Title = "Login";
 }
 @{
-    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+    Layout = "~/Areas/UserPanel/Views/Shared/_LayoutLogin.cshtml";
 }
 
     <div class="container justify-content-center text-center">
@@ -46,7 +46,7 @@
                 <div class="form-group">
                     <div class="col-md-offset-2 col">
                         <div>Niemasz jeszcze konta zarejstruj się:</div>
-                        <div>@Html.ActionLink("Rejstracja", "Register", "Login", null, new { @class = "btn btn-danger m-1" })</div>
+                        <div>@Html.ActionLink("Rejstracja", "Register", "Login", new { @class = "btn btn-danger m-1" })</div>
                     </div>
                 </div>
             </div>
