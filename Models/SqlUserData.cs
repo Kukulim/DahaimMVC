@@ -34,6 +34,11 @@ namespace DahaimMVC.Models
             database.SaveChanges();
         }
 
+        public void EditByUser(User user)
+        {
+            throw new NotImplementedException();
+        }
+
         public User Get(int id)
         {
             return database.User.FirstOrDefault(r => r.UserId == id);

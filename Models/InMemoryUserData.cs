@@ -39,6 +39,21 @@ namespace DahaimMVC.Models
             }
         }
 
+        public void EditByUser(User user)
+        {
+            {
+                User userEdit = this.Get(user.UserId);
+                if (userEdit != null)
+                {
+                    userEdit.UserName = user.UserName;
+                    userEdit.Name = user.Name;
+                    userEdit.Subname = user.Subname;
+                    userEdit.PhoneNumber = user.PhoneNumber;
+                    userEdit.Email = user.Email;
+                }
+            }
+        }
+
         public User Get(int id)
         {
             return users.FirstOrDefault(e => e.UserId == id);

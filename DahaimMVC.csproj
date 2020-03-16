@@ -362,6 +362,7 @@
     <Content Include="Views\UserDetails\C2.cshtml" />
     <Content Include="Views\UserDetails\_SecNavBar.cshtml" />
     <Content Include="Views\UserDetails\UserDelete.cshtml" />
+    <Content Include="Views\UserDetails\UserEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -10,6 +10,7 @@
     <div class="container justify-content-center text-center">
         <h2 class="m-4">Login:</h2>
         <h2 class="text-center text-danger m-4">@ViewBag.WrongPassword</h2>
+        <h3 class="text-center text-danger m-4">@TempData["Message"]</h3>
         <hr />
         @using (Html.BeginForm("Authorize", "Login", FormMethod.Post))
         {

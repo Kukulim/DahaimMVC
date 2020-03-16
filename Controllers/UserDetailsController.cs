@@ -78,5 +78,24 @@ namespace DahaimMVC.Controllers
             TempData["BadPass"] = "Błędne hasło";
             return RedirectToAction("UserDelete");
         }
+
+        public ActionResult UserEdit()
+        {
+            int id = Convert.ToInt32(Session["UserId"]);
+            var model = database.Get(id);
+            if (model == null)
+            {
+                return View("Notfound");
+            }
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult UserEdit(User model)
+        {
+            database.EditByUser(model);
+            TempData["Message"] = "Zapisano w bazie danych";
+            Session.Clear();
+            return RedirectToAction("Index","Login");
+        }
     }
 }
