@@ -16,7 +16,7 @@ namespace DahaimMVC.Areas.UserPanel.Data
             int UserLvl = Convert.ToInt32(filterContext.HttpContext.Session["UserLvl"]);
             if (UserLvl < RequiredLvl)
             {
-                filterContext.Result = (new RedirectToRouteResult(new RouteValueDictionary(new { action = "A0", controller = "UserDetails" })));
+                filterContext.Result = (new RedirectToRouteResult(new RouteValueDictionary(new { action = "Index", controller = "UserDetails" })));
             }
         }
 

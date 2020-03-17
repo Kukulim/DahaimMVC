@@ -29,6 +29,7 @@ namespace DahaimMVC.Areas.UserPanel.Controllers
         {
             return View();
         }
+        [LanguageLvlFilter(RequiredLvl = 1)]
         public ActionResult A0()
         {
             return View();
