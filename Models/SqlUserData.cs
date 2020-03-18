@@ -36,7 +36,9 @@ namespace DahaimMVC.Models
 
         public void EditByUser(User user)
         {
-            throw new NotImplementedException();
+            var userEdit = database.Entry(user);
+            userEdit.State = EntityState.Modified;
+            database.SaveChanges();
         }
 
         public User Get(int id)

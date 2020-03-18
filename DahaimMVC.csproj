@@ -149,6 +149,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Models\MessageDbContext.cs" />
+    <Compile Include="Areas\Admin\Models\SqlMessageData.cs" />
     <Compile Include="Areas\UserPanel\Data\LanguageLvlFilter.cs" />
     <Compile Include="Areas\UserPanel\UserPanelAreaRegistration.cs" />
     <Compile Include="Components\HtmlExtCommon.cs" />
@@ -161,15 +163,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202002271423344_first.cs" />
-    <Compile Include="Migrations\202002271423344_first.designer.cs">
-      <DependentUpon>202002271423344_first.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202002271643536_confirmpass.cs" />
-    <Compile Include="Migrations\202002271643536_confirmpass.designer.cs">
-      <DependentUpon>202002271643536_confirmpass.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Areas\Admin\Models\Administrator.cs" />
     <Compile Include="Areas\Admin\Models\IMessageData.cs" />
     <Compile Include="Areas\Admin\Models\InMemoryMessageData.cs" />
@@ -381,14 +374,6 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202002271423344_first.resx">
-      <DependentUpon>202002271423344_first.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002271643536_confirmpass.resx">
-      <DependentUpon>202002271643536_confirmpass.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

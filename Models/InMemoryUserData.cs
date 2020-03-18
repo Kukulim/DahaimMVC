@@ -11,7 +11,7 @@ namespace DahaimMVC.Models
         public InMemoryUserData()
         {
             users = new List<User>() {
-                new User { UserName = "muser", UserPassword = "mpass", Name = "Lukasz", Subname = "Testowy", Email ="test@gmail.com", PhoneNumber ="123123123", LanguageLvl= LanguageLvlEmun.A0},
+                new User { UserName = "muser", UserPassword = "mpass1", Name = "Lukasz", Subname = "Testowy", Email ="test@gmail.com", PhoneNumber ="123123123", LanguageLvl= LanguageLvlEmun.A0},
             };
         }
         public void Add(User user)

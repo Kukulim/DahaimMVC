@@ -8,21 +8,21 @@ namespace DahaimMVC.Models
     public partial class UserDbContext : DbContext
     {
         public UserDbContext()
-            : base("name=LoginDataBase")
+            : base("name=DahaimDB")
         {
         }
 
         public virtual DbSet<User> User { get; set; }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<User>()
-                .Property(e => e.UserName)
-                .IsUnicode(false);
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<User>()
+        //        .Property(e => e.UserName)
+        //        .IsUnicode(false);
 
-            modelBuilder.Entity<User>()
-                .Property(e => e.UserPassword)
-                .IsUnicode(false);
-        }
+        //    modelBuilder.Entity<User>()
+        //        .Property(e => e.UserPassword)
+        //        .IsUnicode(false);
+        //}
     }
 }
