@@ -92,8 +92,7 @@ namespace DahaimMVC.Areas.Admin.Controllers
         public ActionResult MessageIndex()
         {
             var model = messageData.GetAll();
-            int unreaded = messageData.UnReaded();
-            TempData["Unreaded"] = unreaded;
+            TempData["Unreaded"] = messageData.UnReaded();
             return View(model);
         }
         public ActionResult MessageDetails(int id)

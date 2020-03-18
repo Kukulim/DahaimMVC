@@ -29,16 +29,31 @@ namespace DahaimMVC.Models
 
         public void Edit(User user)
         {
-            var userEdit = database.Entry(user);
-            userEdit.State = EntityState.Modified;
-            database.SaveChanges();
+            var userEdit = database.User.Find(user.UserId);
+            if (userEdit != null)
+            {
+                userEdit.UserName = user.UserName;
+                userEdit.Name = user.Name;
+                userEdit.Subname = user.Subname;
+                userEdit.PhoneNumber = user.PhoneNumber;
+                userEdit.LanguageLvl = user.LanguageLvl;
+                userEdit.Email = user.Email;
+                database.SaveChanges();
+            }
         }
 
         public void EditByUser(User user)
         {
-            var userEdit = database.Entry(user);
-            userEdit.State = EntityState.Modified;
-            database.SaveChanges();
+            var userEdit = database.User.Find(user.UserId);
+            if (userEdit != null)
+            {              
+                userEdit.UserName = user.UserName;
+                userEdit.Name = user.Name;
+                userEdit.Subname = user.Subname;
+                userEdit.PhoneNumber = user.PhoneNumber;
+                userEdit.Email = user.Email;
+                database.SaveChanges();
+            }
         }
 
         public User Get(int id)

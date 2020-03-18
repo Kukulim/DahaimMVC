@@ -166,6 +166,11 @@
     <Compile Include="Areas\Admin\Models\Administrator.cs" />
     <Compile Include="Areas\Admin\Models\IMessageData.cs" />
     <Compile Include="Areas\Admin\Models\InMemoryMessageData.cs" />
+    <Compile Include="Migrations\202003181333039_Initial message.cs" />
+    <Compile Include="Migrations\202003181333039_Initial message.designer.cs">
+      <DependentUpon>202003181333039_Initial message.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\InMemoryUserData.cs" />
     <Compile Include="Models\IUserData.cs" />
     <Compile Include="Models\Enums\LanguageLvlEmun.cs" />
@@ -374,6 +379,11 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202003181333039_Initial message.resx">
+      <DependentUpon>202003181333039_Initial message.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

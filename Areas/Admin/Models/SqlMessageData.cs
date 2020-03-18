@@ -42,6 +42,7 @@ namespace DahaimMVC.Areas.Admin.Models
         {
             var MessageEdit = messageDb.Messages.FirstOrDefault(m => m.Id == id);
             MessageEdit.Readed = 1;
+            messageDb.SaveChanges();
             return MessageEdit;
         }
 

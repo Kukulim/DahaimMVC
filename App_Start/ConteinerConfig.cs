@@ -14,8 +14,8 @@ namespace DahaimMVC
 
             builder.RegisterControllers(typeof(MvcApplication).Assembly);
 
-            builder.RegisterType<InMemoryUserData>().As<IUserData>().SingleInstance();
-            builder.RegisterType<InMemoryMessageData>().As<IMessageData>().SingleInstance();
+            builder.RegisterType<SqlMessageData>().As<IMessageData>().SingleInstance();
+            builder.RegisterType<SqlUserData>().As<IUserData>().SingleInstance();
 
             builder.RegisterType<UserDbContext>().SingleInstance();
             builder.RegisterType<MessageDbContext>().SingleInstance();           
