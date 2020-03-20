@@ -1,0 +1,24 @@
+﻿@model IEnumerable<DahaimMVC.Areas.Shop.Models.Type>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<p>Wybierz z @Model.Count() typów:</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink(item.Name, "Browse", new { item = item.Name })
+        </td>
+    </tr>
+}
+
+</table>

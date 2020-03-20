@@ -5,14 +5,14 @@
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<DahaimMVC.Areas.Admin.Models.MessageDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<DahaimMVC.Models.UserDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(DahaimMVC.Areas.Admin.Models.MessageDbContext context)
+        protected override void Seed(DahaimMVC.Models.UserDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

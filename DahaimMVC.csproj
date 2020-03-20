@@ -151,6 +151,17 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Models\MessageDbContext.cs" />
     <Compile Include="Areas\Admin\Models\SqlMessageData.cs" />
+    <Compile Include="Areas\Shop\Controllers\ShopController.cs" />
+    <Compile Include="Areas\Shop\Controllers\ShopManagerController.cs" />
+    <Compile Include="Areas\Shop\Models\Author.cs" />
+    <Compile Include="Areas\Shop\Models\IProductData.cs" />
+    <Compile Include="Areas\Shop\Models\ITypeData.cs" />
+    <Compile Include="Areas\Shop\Models\Product.cs" />
+    <Compile Include="Areas\Shop\Models\SqlProductData.cs" />
+    <Compile Include="Areas\Shop\Models\SqlTypeData.cs" />
+    <Compile Include="Areas\Shop\Models\StoreDbContext.cs" />
+    <Compile Include="Areas\Shop\Models\Type.cs" />
+    <Compile Include="Areas\Shop\ShopAreaRegistration.cs" />
     <Compile Include="Areas\UserPanel\Data\LanguageLvlFilter.cs" />
     <Compile Include="Areas\UserPanel\UserPanelAreaRegistration.cs" />
     <Compile Include="Components\HtmlExtCommon.cs" />
@@ -166,9 +177,9 @@
     <Compile Include="Areas\Admin\Models\Administrator.cs" />
     <Compile Include="Areas\Admin\Models\IMessageData.cs" />
     <Compile Include="Areas\Admin\Models\InMemoryMessageData.cs" />
-    <Compile Include="Migrations\202003181333039_Initial message.cs" />
-    <Compile Include="Migrations\202003181333039_Initial message.designer.cs">
-      <DependentUpon>202003181333039_Initial message.cs</DependentUpon>
+    <Compile Include="Migrations\202003191518400_initial.cs" />
+    <Compile Include="Migrations\202003191518400_initial.designer.cs">
+      <DependentUpon>202003191518400_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\InMemoryUserData.cs" />
@@ -196,6 +207,7 @@
     <Content Include="Content\images\opinia3.jpg" />
     <Content Include="Content\images\teacher.jpg" />
     <Content Include="Content\images\welcomebook.jpg" />
+    <Content Include="Content\Site.css" />
     <Content Include="Content\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -231,6 +243,12 @@
     <Content Include="Areas\UserPanel\Views\web.config" />
     <Content Include="Areas\UserPanel\Views\_ViewStart.cshtml" />
     <Content Include="Areas\UserPanel\Views\Login\Register.cshtml" />
+    <Content Include="Areas\Shop\Views\web.config" />
+    <Content Include="Areas\Shop\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Shop\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Shop\Views\Shop\Index.cshtml" />
+    <Content Include="Areas\Shop\Views\Shop\Details.cshtml" />
+    <Content Include="Areas\Shop\Views\Shop\Browse.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -368,6 +386,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Shop\Data\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -381,8 +400,8 @@
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202003181333039_Initial message.resx">
-      <DependentUpon>202003181333039_Initial message.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202003191518400_initial.resx">
+      <DependentUpon>202003191518400_initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
