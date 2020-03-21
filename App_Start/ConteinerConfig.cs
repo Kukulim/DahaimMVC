@@ -19,6 +19,7 @@ namespace DahaimMVC
             builder.RegisterType<SqlUserData>().As<IUserData>().SingleInstance();
             builder.RegisterType<SqlTypeData>().As<ITypeData>().SingleInstance();
             builder.RegisterType<SqlProductData>().As<IProductData>().SingleInstance();
+            builder.RegisterType<SqlAuthorData>().As<IAuthorData>().SingleInstance();
 
             builder.RegisterType<UserDbContext>().SingleInstance();
             builder.RegisterType<MessageDbContext>().SingleInstance();

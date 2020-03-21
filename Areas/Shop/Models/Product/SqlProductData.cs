@@ -5,20 +5,21 @@ using System.Web;
 
 namespace DahaimMVC.Areas.Shop.Models
 {
-    public class SqlTypeData : ITypeData
+    public class SqlProductData : IProductData
     {
         private readonly StoreDbContext storeDbContext;
 
-        public SqlTypeData(StoreDbContext storeDbContext)
+        public SqlProductData(StoreDbContext storeDbContext)
         {
             this.storeDbContext = storeDbContext;
         }
-        public void Add(Type type)
+        public void Add(Product product)
         {
-            throw new NotImplementedException();
+            storeDbContext.Products.Add(product);
+            storeDbContext.SaveChanges();
         }
 
-        public void Delete(Type type)
+        public void Delete(Product product)
         {
             throw new NotImplementedException();
         }
@@ -28,9 +29,9 @@ namespace DahaimMVC.Areas.Shop.Models
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Type> GetAll()
+        public IEnumerable<Product> GetAll()
         {
-            return storeDbContext.Types;
+            return storeDbContext.Products;
         }
     }
 }

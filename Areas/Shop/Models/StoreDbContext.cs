@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Web;
+﻿using System.Data.Entity;
 
 namespace DahaimMVC.Areas.Shop.Models
 {
@@ -15,6 +11,6 @@ namespace DahaimMVC.Areas.Shop.Models
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Type> Types { get; set; }
 
-        public System.Data.Entity.DbSet<DahaimMVC.Areas.Shop.Models.Author> Authors { get; set; }
+        public virtual DbSet<Author> Authors { get; set; }
     }
 }
