@@ -253,6 +253,9 @@
     <Content Include="Areas\Shop\Views\Shop\Browse.cshtml" />
     <Content Include="Areas\Shop\Views\ShopManager\Index.cshtml" />
     <Content Include="Areas\Shop\Views\ShopManager\Create.cshtml" />
+    <Content Include="Areas\Shop\Views\ShopManager\Edit.cshtml" />
+    <Content Include="Areas\Shop\Views\ShopManager\Details.cshtml" />
+    <Content Include="Areas\Shop\Views\ShopManager\Delete.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

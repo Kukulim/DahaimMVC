@@ -9,8 +9,9 @@ namespace DahaimMVC.Areas.Shop.Models
     public interface IProductData
     {
         IEnumerable<Product> GetAll();
-        Type Get(int id);
+        Product Get(int id);
         void Add(Product product);
         void Delete(Product product);
+        void Edit(Product product);
     }
 }

@@ -47,6 +47,41 @@ namespace DahaimMVC.Areas.Shop.Controllers
 
             return View(product);
         }
-
+        public ActionResult Edit(int id)
+        {
+            Product product = productData.Get(id);
+            ViewBag.TypeId = new SelectList(typeData.GetAll(), "TypeId", "Name", product.TypeId);
+            ViewBag.AuthorId = new SelectList(authorData.GetAll(), "AuthorId", "AuthorName", product.AuthorId);
+            return View(product);
+        }
+        [HttpPost]
+        public ActionResult Edit(Product product)
+        {
+            if (ModelState.IsValid)
+            {
+                productData.Edit(product);
+                return RedirectToAction("Index");
+            }
+            ViewBag.TypeId = new SelectList(typeData.GetAll(), "TypeId", "Name", product.TypeId);
+            ViewBag.AuthorId = new SelectList(authorData.GetAll(), "AuthorId", "AuthorName", product.AuthorId);
+            return View(product);
+        }
+        public ViewResult Details(int id)
+        {
+            Product product = productData.Get(id);
+            return View(product);
+        }
+        public ActionResult Delete(int id)
+        {
+            Product product = productData.Get(id);
+            return View(product);
+        }
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            Product product = productData.Get(id);
+            productData.Delete(product);
+            return RedirectToAction("Index");
+        }
     }
 }
