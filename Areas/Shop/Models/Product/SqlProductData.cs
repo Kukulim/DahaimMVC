@@ -29,16 +29,9 @@ namespace DahaimMVC.Areas.Shop.Models
 
         public void Edit(Product product)
         {
-            var prodEdit = storeDbContext.Products.Find(product.ProductId);
-            if (prodEdit != null)
-            {
-                prodEdit.AuthorId = product.AuthorId;
-                prodEdit.TypeId = product.TypeId;
-                prodEdit.Title = product.Title;
-                prodEdit.Price = product.Price;
-                prodEdit.AlbumArtUrl = product.AlbumArtUrl;
-                storeDbContext.SaveChanges();
-            }
+            var prodedit = storeDbContext.Entry(product);
+            prodedit.State = EntityState.Modified;
+            storeDbContext.SaveChanges();
         }
 
         public Product Get(int id)

@@ -15,15 +15,15 @@ namespace DahaimMVC
 
             builder.RegisterControllers(typeof(MvcApplication).Assembly);
 
-            builder.RegisterType<SqlMessageData>().As<IMessageData>().SingleInstance();
-            builder.RegisterType<SqlUserData>().As<IUserData>().SingleInstance();
-            builder.RegisterType<SqlTypeData>().As<ITypeData>().SingleInstance();
-            builder.RegisterType<SqlProductData>().As<IProductData>().SingleInstance();
-            builder.RegisterType<SqlAuthorData>().As<IAuthorData>().SingleInstance();
+            builder.RegisterType<SqlMessageData>().As<IMessageData>().InstancePerRequest();
+            builder.RegisterType<SqlUserData>().As<IUserData>().InstancePerRequest();
+            builder.RegisterType<SqlTypeData>().As<ITypeData>().InstancePerRequest();
+            builder.RegisterType<SqlProductData>().As<IProductData>().InstancePerRequest();
+            builder.RegisterType<SqlAuthorData>().As<IAuthorData>().InstancePerRequest();
 
-            builder.RegisterType<UserDbContext>().SingleInstance();
-            builder.RegisterType<MessageDbContext>().SingleInstance();
-            builder.RegisterType<StoreDbContext>().SingleInstance();
+            builder.RegisterType<UserDbContext>().InstancePerRequest();
+            builder.RegisterType<MessageDbContext>().InstancePerRequest();
+            builder.RegisterType<StoreDbContext>().InstancePerRequest();
 
             IContainer container = builder.Build();
 
