@@ -8,7 +8,6 @@ using System.Web.Mvc;
 
 namespace DahaimMVC.Areas.Shop.Models
 {
-    [Bind(Exclude = "ProductId")]
     public class Product
     {
         [ScaffoldColumn(false)]
@@ -19,7 +18,9 @@ namespace DahaimMVC.Areas.Shop.Models
         public int AuthorId { get; set; }
         [Required(ErrorMessage = "An Album Title is required")]
         [StringLength(160)]
+        [DisplayName("Tytuł")]
         public string Title { get; set; }
+        [DisplayName("Cena")]
         [Range(0.01, 100.00, ErrorMessage = "Price must be between 0.01 and 100.00")]
         public decimal Price { get; set; }
         [DisplayName("Produkt URL")]
