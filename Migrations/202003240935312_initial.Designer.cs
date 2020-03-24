@@ -13,7 +13,7 @@ namespace DahaimMVC.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202003201246030_initial"; }
+            get { return "202003240935312_initial"; }
         }
         
         string IMigrationMetadata.Source

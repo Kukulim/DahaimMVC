@@ -179,9 +179,9 @@
     <Compile Include="Areas\Admin\Models\Administrator.cs" />
     <Compile Include="Areas\Admin\Models\IMessageData.cs" />
     <Compile Include="Areas\Admin\Models\InMemoryMessageData.cs" />
-    <Compile Include="Migrations\202003201246030_initial.cs" />
-    <Compile Include="Migrations\202003201246030_initial.designer.cs">
-      <DependentUpon>202003201246030_initial.cs</DependentUpon>
+    <Compile Include="Migrations\202003240935312_initial.cs" />
+    <Compile Include="Migrations\202003240935312_initial.designer.cs">
+      <DependentUpon>202003240935312_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\InMemoryUserData.cs" />
@@ -407,8 +407,8 @@
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202003201246030_initial.resx">
-      <DependentUpon>202003201246030_initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202003240935312_initial.resx">
+      <DependentUpon>202003240935312_initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
