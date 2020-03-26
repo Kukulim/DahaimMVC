@@ -173,6 +173,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Areas\UserPanel\Controllers\LoginController.cs" />
     <Compile Include="Areas\UserPanel\Controllers\UserDetailsController.cs" />
+    <Compile Include="Filters\AdminAccessFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

@@ -25,6 +25,10 @@
                     <ul class="navbar-nav ml-auto menu">
 
                         <li class="nav-item">
+                            @Html.ActionLink("Sklep Manager", "Index", "ShopManager", new { area = "Shop" }, new { @class = "nav-link  ml-3" })
+                        </li>
+
+                        <li class="nav-item">
                             @Html.ActionLink("Wiadomości (" + @TempData["Unreaded"] + ")", "MessageIndex", "ControlPanel", null, new { @class = "nav-link  ml-3" })
                         </li>
 
@@ -33,7 +37,7 @@
                         </li>
 
                         <li class="nav-item">
-                            @Html.ActionLink("Strona główna", "index", "home", new { area= "" }, new { @class = "nav-link  ml-3" })
+                            @Html.ActionLink("Strona główna", "index", "home", new { area = "" }, new { @class = "nav-link  ml-3" })
                         </li>
                     </ul>
                 </div>

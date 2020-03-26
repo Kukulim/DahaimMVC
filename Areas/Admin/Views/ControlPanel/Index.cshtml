@@ -2,9 +2,9 @@
 
 @{
 
-    if (Session["UserName"] == null)
+    if (Session["UserName"].ToString() != "admin")
     {
-        Response.Redirect("~/Admin/Index");
+        Response.Redirect("~/Admin/Admin/Index");
     }
 }
 @{

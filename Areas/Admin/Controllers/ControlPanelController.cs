@@ -55,7 +55,7 @@ namespace DahaimMVC.Areas.Admin.Controllers
             return View(model);
         }
         [HttpPost]
-        public ActionResult UserDelete(int id, int? cos) //gdziesz widziałem jak to zrobić inaczej
+        public ActionResult UserDelete(int id, int? cos) //gdziesz widziałem jak to zrobić inaczej ROZWIAZANE W SHOPMANAGER KONTROLER ZOSTAWIAM JAKO PRZYKŁAD
         {
             var model = database.Get(id);
             database.Delete(model);
@@ -117,7 +117,7 @@ namespace DahaimMVC.Areas.Admin.Controllers
             return View(model);
         }
         [HttpPost]
-        public ActionResult MessageDelete(int id, int? cos) //gdziesz widziałem jak to zrobić inaczej
+        public ActionResult MessageDelete(int id, int? cos) //gdziesz widziałem jak to zrobić inaczej ROZWIAZANE W SHOPMANAGER KONTROLER ZOSTAWIAM JAKO PRZYKŁAD
         {
             var model = messageData.Get(id);
             messageData.Delete(model);

@@ -1,8 +1,10 @@
 ﻿using DahaimMVC.Areas.Shop.Models;
+using DahaimMVC.Filters;
 using System.Web.Mvc;
 
 namespace DahaimMVC.Areas.Shop.Controllers
 {
+    [AdminAccessFilter]
     public class ShopManagerController : Controller
     {
         private readonly ITypeData typeData;
@@ -15,7 +17,6 @@ namespace DahaimMVC.Areas.Shop.Controllers
             this.productData = productData;
             this.authorData = authorData;
         }
-
         public ActionResult Index()
         {
             var model = productData.GetAll();
