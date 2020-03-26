@@ -25,7 +25,7 @@ namespace DahaimMVC.Areas.Shop.Models
         public decimal Price { get; set; }
         [DisplayName("Produkt URL")]
         [StringLength(1024)]
-        public string AlbumArtUrl { get; set; }
+        public string ProductArtUrl { get; set; }
         public virtual Type Type { get; set; }
         public virtual Author Author { get; set; }
     }
