@@ -153,11 +153,13 @@
     <Compile Include="Areas\Admin\Models\SqlMessageData.cs" />
     <Compile Include="Areas\Shop\Controllers\ShopController.cs" />
     <Compile Include="Areas\Shop\Controllers\ShopManagerController.cs" />
+    <Compile Include="Areas\Shop\Controllers\ShoppingCartController.cs" />
     <Compile Include="Areas\Shop\Models\Author\IAuthorData.cs" />
     <Compile Include="Areas\Shop\Models\Author\Author.cs" />
     <Compile Include="Areas\Shop\Models\OrdersModels\Cart.cs" />
     <Compile Include="Areas\Shop\Models\OrdersModels\Order.cs" />
     <Compile Include="Areas\Shop\Models\OrdersModels\OrderDetail.cs" />
+    <Compile Include="Areas\Shop\Models\OrdersModels\ShoppingCart.cs" />
     <Compile Include="Areas\Shop\Models\Product\IProductData.cs" />
     <Compile Include="Areas\Shop\Models\Type\ITypeData.cs" />
     <Compile Include="Areas\Shop\Models\Product\Product.cs" />
@@ -167,6 +169,8 @@
     <Compile Include="Areas\Shop\Models\StoreDbContext.cs" />
     <Compile Include="Areas\Shop\Models\Type\Type.cs" />
     <Compile Include="Areas\Shop\ShopAreaRegistration.cs" />
+    <Compile Include="Areas\Shop\ViewModels\ShoppingCartRemoveViewModel.cs" />
+    <Compile Include="Areas\Shop\ViewModels\ShoppingCartViewModel.cs" />
     <Compile Include="Areas\UserPanel\Data\LanguageLvlFilter.cs" />
     <Compile Include="Areas\UserPanel\UserPanelAreaRegistration.cs" />
     <Compile Include="Components\HtmlExtCommon.cs" />
@@ -183,9 +187,9 @@
     <Compile Include="Areas\Admin\Models\Administrator.cs" />
     <Compile Include="Areas\Admin\Models\IMessageData.cs" />
     <Compile Include="Areas\Admin\Models\InMemoryMessageData.cs" />
-    <Compile Include="Migrations\202003240935312_initial.cs" />
-    <Compile Include="Migrations\202003240935312_initial.designer.cs">
-      <DependentUpon>202003240935312_initial.cs</DependentUpon>
+    <Compile Include="Migrations\202003280845584_initial.cs" />
+    <Compile Include="Migrations\202003280845584_initial.designer.cs">
+      <DependentUpon>202003280845584_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\InMemoryUserData.cs" />
@@ -263,6 +267,7 @@
     <Content Include="Areas\Shop\Views\ShopManager\Edit.cshtml" />
     <Content Include="Areas\Shop\Views\ShopManager\Details.cshtml" />
     <Content Include="Areas\Shop\Views\ShopManager\Delete.cshtml" />
+    <Content Include="Areas\Shop\Views\ShoppingCart\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -414,8 +419,8 @@
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202003240935312_initial.resx">
-      <DependentUpon>202003240935312_initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202003280845584_initial.resx">
+      <DependentUpon>202003280845584_initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

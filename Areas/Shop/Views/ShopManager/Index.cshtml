@@ -27,7 +27,7 @@
             @Html.DisplayNameFor(model => model.Price)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.AlbumArtUrl)
+            @Html.DisplayNameFor(model => model.ProductArtUrl)
         </th>
         <th>
             <span>Szczególy:</span>
@@ -59,7 +59,7 @@
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.AlbumArtUrl)
+                @Html.DisplayFor(modelItem => item.ProductArtUrl)
             </td>
             <td>
                 <a href="@Url.Action("Details", "ShopManager",new { id = item.ProductId })" class="btn btn-sm">
