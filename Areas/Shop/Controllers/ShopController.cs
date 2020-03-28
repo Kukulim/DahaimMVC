@@ -26,7 +26,7 @@ namespace DahaimMVC.Areas.Shop.Controllers
         }
         public ActionResult Browse(string type)
         {
-            var typeModel = new Type { Name = type };
+            Type typeModel = typeData.GetType(type);
             return View(typeModel);
         }
 
