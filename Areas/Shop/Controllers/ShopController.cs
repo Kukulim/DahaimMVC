@@ -32,8 +32,8 @@ namespace DahaimMVC.Areas.Shop.Controllers
 
         public ActionResult Details(int id)
         {
-            var product = new Product { Title = "Produkt nazwa " + id };
-            return View(product);
+            var typeModel = productData.Get(id);
+            return View(typeModel);
         }
     }
 }

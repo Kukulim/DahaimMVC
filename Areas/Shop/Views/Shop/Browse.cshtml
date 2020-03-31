@@ -2,13 +2,17 @@
 @{
     ViewBag.Title = "Browse";
 }
-
-<h2>Browsing Genre: @Model.Name</h2>
-<ul>
-    @foreach (var item in Model.Products)
-    {
-        <li>
-            @item.Title
-        </li>
-    }
-</ul>
+    <div class="col-md-6 m-auto">
+        <h2 class="m-4 ml-5">Wybierz z interesujący Cię produkt:</h2>
+        <ul>
+            @foreach (var item in Model.Products)
+            {
+                <li>
+                    @Html.ActionLink(item.Title, "Details", new { id = item.ProductId }, new { @class = "btn btn-outline-primary m-1 btn-lg btn-block" })
+                </li>
+            }
+        </ul>
+        <div class="text-center">
+            @Html.ActionLink("Powrót do listy produktów", "Index", "Shop", null, new { @class = "btn btn-dark m-5" })
+        </div>
+    </div>

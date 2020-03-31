@@ -4,12 +4,32 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2 class="m-4 text-center">Szczególy produktu:</h2>
 
-<div>
-    <h4>Product</h4>
+<div class="col-md-4 m-auto">
     <hr />
     <dl class="dl-horizontal">
+
+        <dt>
+            <img src="@Model.ProductArtUrl" alt="Produkt" width="300" />
+        </dt>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Author.AuthorName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Author.AuthorName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Type.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Type.Name)
+        </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.Title)
         </dt>
@@ -18,9 +38,25 @@
             @Html.DisplayFor(model => model.Title)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<div>
+
+    <p class="button text-center m-3">
+        @Html.ActionLink("Kup", "AddToCart", "ShoppingCart", new { id = Model.ProductId }, new { @class = "btn btn-warning m-1" })
+    </p>
+
+    <div class="text-center m-3">
+        @Html.ActionLink("Powrót do listy produktów", "Index", "Shop", null, new { @class = "btn btn-dark m-1" })
+    </div>
+</div>
+
+

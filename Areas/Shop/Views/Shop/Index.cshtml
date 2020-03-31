@@ -3,22 +3,10 @@
 @{
     ViewBag.Title = "Index";
 }
-
-<p>Wybierz z @Model.Count() typów:</p>
-
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.ActionLink(item.Name, "Browse", new { Type = item.Name })
-        </td>
-    </tr>
-}
-
-</table>
+<div>
+    <h2 class="m-4 ml-5">Wybierz z interesujący Cię dział:</h2>
+    @foreach (var item in Model)
+    {
+        @Html.ActionLink(item.Name, "Browse", new { Type = item.Name }, new { @class = "btn btn-info m-5 btn-lg btn-block" })
+    }
+</div>
