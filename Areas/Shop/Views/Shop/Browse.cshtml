@@ -2,17 +2,23 @@
 @{
     ViewBag.Title = "Browse";
 }
-    <div class="col-md-6 m-auto">
-        <h2 class="m-4 ml-5">Wybierz z interesujący Cię produkt:</h2>
-        <ul>
-            @foreach (var item in Model.Products)
+
+    <div class="genre">
+        <h3 class="mt-4"><em>@Model.Name</em> produkty:</h3>
+
+        <ul id="album-list">
+            @foreach (var album in Model.Products)
             {
                 <li>
-                    @Html.ActionLink(item.Title, "Details", new { id = item.ProductId }, new { @class = "btn btn-outline-primary m-1 btn-lg btn-block" })
+                    <a href="@Url.Action("Details", new { id = album.ProductId })">
+                        <img alt="@album.Title" src="@album.ProductArtUrl" />
+                        <span>@album.Title</span>
+                    </a>
                 </li>
             }
         </ul>
+    </div>
         <div class="text-center">
             @Html.ActionLink("Powrót do listy produktów", "Index", "Shop", null, new { @class = "btn btn-dark m-5" })
         </div>
-    </div>
+ 

@@ -1,8 +1,4 @@
 ﻿using DahaimMVC.Areas.Shop.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using Type = DahaimMVC.Areas.Shop.Models.Type;
 
@@ -34,6 +30,12 @@ namespace DahaimMVC.Areas.Shop.Controllers
         {
             var typeModel = productData.Get(id);
             return View(typeModel);
+        }
+        [ChildActionOnly]
+        public ActionResult TypeMenu()
+        {
+            var genres = typeData.GetAll();
+            return PartialView(genres);
         }
     }
 }

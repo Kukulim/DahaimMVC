@@ -61,8 +61,7 @@ namespace DahaimMVC.Areas.Shop.Controllers
             // Display the confirmation message
             var results = new ShoppingCartRemoveViewModel
             {
-                Message = Server.HtmlEncode(productName) +
-                    " has been removed from your shopping cart.",
+                Message ="' " + Server.HtmlEncode(productName) + " '" + " został usuniety z twojego koszyka.",
                 CartTotal = cart.GetTotal(),
                 CartCount = cart.GetCount(),
                 ItemCount = itemCount,
@@ -80,5 +79,6 @@ namespace DahaimMVC.Areas.Shop.Controllers
             ViewData["CartCount"] = cart.GetCount();
             return PartialView("CartSummary");
         }
+
     }
 }

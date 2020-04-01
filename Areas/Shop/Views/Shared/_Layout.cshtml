@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 
 </head>
+
 <body>
     <header>
         <div class="conteiner">
@@ -25,6 +26,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto menu">
 
+                        <li>@{Html.RenderAction("CartSummary", "ShoppingCart");}</li>
 
                         <li class="nav-item">
                             @Html.ActionLink("Strona główna", "index", "home", new { area = "" }, new { @class = "nav-link ml-3" })
@@ -36,11 +38,18 @@
             </nav>
         </div>
     </header>
+
     <div class="container">
-        @RenderBody()
+        <div class="row">
+            <div class="col-2">
+                @{Html.RenderAction("TypeMenu", "Shop");}
+            </div>
+
+            <div class="col-10">
+                @RenderBody()
+            </div>
+        </div>
     </div>
-
-
 
     <footer>
         <div class="conteiner">

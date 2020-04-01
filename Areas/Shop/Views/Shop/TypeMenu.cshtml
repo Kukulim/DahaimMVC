@@ -1,0 +1,13 @@
+﻿@model IEnumerable<DahaimMVC.Areas.Shop.Models.Type>
+
+<div class="mt-4">
+    <h4 class="text-center">Kategoria:</h4>
+    <ul id="categories">
+        @foreach (var type in Model)
+        {
+            <li>
+                @Html.ActionLink(type.Name, "Browse", "Shop", new { Type = type.Name }, new { @class = "btn btn-outline-primary m-1 btn-lg btn-block" })
+            </li>
+        }
+    </ul>
+</div>

@@ -151,6 +151,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Models\MessageDbContext.cs" />
     <Compile Include="Areas\Admin\Models\SqlMessageData.cs" />
+    <Compile Include="Areas\Shop\Controllers\CheckoutController.cs" />
     <Compile Include="Areas\Shop\Controllers\ShopController.cs" />
     <Compile Include="Areas\Shop\Controllers\ShopManagerController.cs" />
     <Compile Include="Areas\Shop\Controllers\ShoppingCartController.cs" />
@@ -187,9 +188,9 @@
     <Compile Include="Areas\Admin\Models\Administrator.cs" />
     <Compile Include="Areas\Admin\Models\IMessageData.cs" />
     <Compile Include="Areas\Admin\Models\InMemoryMessageData.cs" />
-    <Compile Include="Migrations\202003280845584_initial.cs" />
-    <Compile Include="Migrations\202003280845584_initial.designer.cs">
-      <DependentUpon>202003280845584_initial.cs</DependentUpon>
+    <Compile Include="Migrations\202003311115234_intil.cs" />
+    <Compile Include="Migrations\202003311115234_intil.designer.cs">
+      <DependentUpon>202003311115234_intil.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\InMemoryUserData.cs" />
@@ -268,6 +269,10 @@
     <Content Include="Areas\Shop\Views\ShopManager\Delete.cshtml" />
     <Content Include="Areas\Shop\Views\ShoppingCart\Index.cshtml" />
     <Content Include="Areas\Shop\Views\Shop\Browse.cshtml" />
+    <Content Include="Areas\Shop\Views\Checkout\AddressAndPayment.cshtml" />
+    <Content Include="Areas\Shop\Views\Checkout\Complete.cshtml" />
+    <Content Include="Areas\Shop\Views\ShoppingCart\CartSummary.cshtml" />
+    <Content Include="Areas\Shop\Views\Shop\TypeMenu.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -419,8 +424,8 @@
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202003280845584_initial.resx">
-      <DependentUpon>202003280845584_initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202003311115234_intil.resx">
+      <DependentUpon>202003311115234_intil.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
