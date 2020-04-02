@@ -48,7 +48,7 @@
                         </li>
 
                         <li class="nav-item">
-                            @Html.ActionLink("Strona główna", "index", "home", new { area= "" }, new { @class = "nav-link  ml-3" })
+                            @Html.ActionLink("Strona główna", "index", "home", new { area = "" }, new { @class = "nav-link  ml-3" })
 
                         </li>
                     </ul>
@@ -58,15 +58,15 @@
         </div>
     </header>
 
-    @RenderBody()
-
-
-
-<footer>
-    <div class="conteiner">
-        <p>Dahaim copywritr &copy 2020 | Mady by Łukasz Bekus</p>
+    <div class="mainwindow">
+        @RenderBody()
     </div>
-</footer>
+
+    <footer>
+        <div class="conteiner">
+            <p>Dahaim copywritr &copy 2020 | Mady by Łukasz Bekus</p>
+        </div>
+    </footer>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

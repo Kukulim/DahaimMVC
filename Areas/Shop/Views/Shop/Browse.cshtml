@@ -2,23 +2,24 @@
 @{
     ViewBag.Title = "Browse";
 }
+@{
+    Layout = "~/Areas/Shop/Views/Shared/_LayoutWithCartAndNavigation.cshtml";
+}
+<div>
+    <h3 class="mt-4"><em>@Model.Name</em> produkty:</h3>
 
-    <div class="genre">
-        <h3 class="mt-4"><em>@Model.Name</em> produkty:</h3>
-
-        <ul id="album-list">
-            @foreach (var album in Model.Products)
-            {
-                <li>
-                    <a href="@Url.Action("Details", new { id = album.ProductId })">
-                        <img alt="@album.Title" src="@album.ProductArtUrl" />
-                        <span>@album.Title</span>
-                    </a>
-                </li>
-            }
-        </ul>
-    </div>
-        <div class="text-center">
-            @Html.ActionLink("Powrót do listy produktów", "Index", "Shop", null, new { @class = "btn btn-dark m-5" })
-        </div>
- 
+    <ul>
+        @foreach (var album in Model.Products)
+        {
+            <li>
+                <a href="@Url.Action("Details", new { id = album.ProductId })">
+                    <img alt="@album.Title" src="@album.ProductArtUrl" />
+                    <span>@album.Title</span>
+                </a>
+            </li>
+        }
+    </ul>
+</div>
+@*<div class="text-center">
+    @Html.ActionLink("Powrót do listy produktów", "Index", "Shop", null, new { @class = "btn btn-dark m-5" })
+</div>*@

@@ -3,6 +3,9 @@
 @{
     ViewBag.Title = "Index";
 }
+@{
+    Layout = "~/Areas/Shop/Views/Shared/_LayoutWithCart.cshtml";
+}
 <div>
     <h2 class="m-4 ml-5">Wybierz z interesujący Cię dział:</h2>
     @foreach (var item in Model)

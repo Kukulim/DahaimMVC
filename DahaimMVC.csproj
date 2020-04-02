@@ -273,6 +273,9 @@
     <Content Include="Areas\Shop\Views\Checkout\Complete.cshtml" />
     <Content Include="Areas\Shop\Views\ShoppingCart\CartSummary.cshtml" />
     <Content Include="Areas\Shop\Views\Shop\TypeMenu.cshtml" />
+    <Content Include="Areas\Shop\Views\Shared\_LayoutWithCart.cshtml" />
+    <Content Include="Areas\Shop\Views\Shared\_LayoutWithCartAndNavigation.cshtml" />
+    <Content Include="Areas\Shop\Views\Shared\_LayoutShopManager.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

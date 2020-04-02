@@ -26,12 +26,14 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto menu">
 
-                        <li>@{Html.RenderAction("CartSummary", "ShoppingCart");}</li>
+                        <li class="nav-item">
+                            @Html.ActionLink("Strona główna sklepu", "index", "Shop", null, new { @class = "nav-link ml-3" })
+                        </li>
 
                         <li class="nav-item">
                             @Html.ActionLink("Strona główna", "index", "home", new { area = "" }, new { @class = "nav-link ml-3" })
-
                         </li>
+
                     </ul>
                 </div>
 
@@ -39,13 +41,10 @@
         </div>
     </header>
 
-    <div class="container">
+    <div class="container mainwindow">
         <div class="row">
-            <div class="col-2">
-                @{Html.RenderAction("TypeMenu", "Shop");}
-            </div>
 
-            <div class="col-10">
+            <div class="col">
                 @RenderBody()
             </div>
         </div>

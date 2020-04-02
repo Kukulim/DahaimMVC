@@ -3,6 +3,9 @@
 @{
     ViewBag.Title = "Index";
 }
+@{
+    Layout = "~/Areas/Shop/Views/Shared/_LayoutWithCart.cshtml";
+}
 
 <script src="~/Scripts/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
@@ -33,7 +36,7 @@
 <h3 class="mt-5 mb-5">Podgląd koszyka:</h3>
 
 <p class="button">
-    @Html.ActionLink("Do Kasy", "AddressAndPayment", "Checkout","", new { @class = "btn btn-outline-success" })
+    @Html.ActionLink("Do Kasy", "AddressAndPayment", "Checkout", "", new { @class = "btn btn-outline-success" })
 </p>
 
 <div id="update-message" class="text-center text-danger text-lg-left mt-3 mb-3"></div>
