@@ -33,7 +33,7 @@ namespace DahaimMVC.Areas.Shop.Controllers
         {
             // Retrieve the album from the database
             var addedProduct = storeDB.Products
-                .Single(album => album.ProductId == id);
+                .Single(a => a.ProductId == id);
 
             // Add it to the shopping cart
             var cart = ShoppingCart.GetCart(this.HttpContext);
