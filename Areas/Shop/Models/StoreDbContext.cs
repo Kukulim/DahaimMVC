@@ -1,4 +1,5 @@
 ﻿using DahaimMVC.Areas.Shop.Models.OrdersModels;
+using DahaimMVC.Areas.Shop.ViewModels;
 using System.Data.Entity;
 
 namespace DahaimMVC.Areas.Shop.Models
@@ -8,6 +9,7 @@ namespace DahaimMVC.Areas.Shop.Models
         public StoreDbContext()
             : base("name=DahaimDB")
         {
+            //Database.SetInitializer(new StoreDbInitializer());
         }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Type> Types { get; set; }
@@ -16,6 +18,6 @@ namespace DahaimMVC.Areas.Shop.Models
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
 
-        public System.Data.Entity.DbSet<DahaimMVC.Areas.Shop.ViewModels.ShoppingCartViewModel> ShoppingCartViewModels { get; set; }
+        public DbSet<ShoppingCartViewModel> ShoppingCartViewModels { get; set; }
     }
 }

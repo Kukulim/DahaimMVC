@@ -162,6 +162,7 @@
     <Compile Include="Areas\Shop\Models\OrdersModels\OrderDetail.cs" />
     <Compile Include="Areas\Shop\Models\OrdersModels\ShoppingCart.cs" />
     <Compile Include="Areas\Shop\Models\Product\IProductData.cs" />
+    <Compile Include="Areas\Shop\Models\StoreDbInitializer.cs" />
     <Compile Include="Areas\Shop\Models\Type\ITypeData.cs" />
     <Compile Include="Areas\Shop\Models\Product\Product.cs" />
     <Compile Include="Areas\Shop\Models\Author\SqlAuthorData.cs" />
@@ -188,9 +189,9 @@
     <Compile Include="Areas\Admin\Models\Administrator.cs" />
     <Compile Include="Areas\Admin\Models\IMessageData.cs" />
     <Compile Include="Areas\Admin\Models\InMemoryMessageData.cs" />
-    <Compile Include="Migrations\202003311115234_intil.cs" />
-    <Compile Include="Migrations\202003311115234_intil.designer.cs">
-      <DependentUpon>202003311115234_intil.cs</DependentUpon>
+    <Compile Include="Migrations\202004031453020_init.cs" />
+    <Compile Include="Migrations\202004031453020_init.designer.cs">
+      <DependentUpon>202004031453020_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\InMemoryUserData.cs" />
@@ -427,8 +428,8 @@
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202003311115234_intil.resx">
-      <DependentUpon>202003311115234_intil.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202004031453020_init.resx">
+      <DependentUpon>202004031453020_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
