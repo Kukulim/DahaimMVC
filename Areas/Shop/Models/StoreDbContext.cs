@@ -17,7 +17,6 @@ namespace DahaimMVC.Areas.Shop.Models
         public DbSet<Cart> Carts { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
-
         public DbSet<ShoppingCartViewModel> ShoppingCartViewModels { get; set; }
     }
 }

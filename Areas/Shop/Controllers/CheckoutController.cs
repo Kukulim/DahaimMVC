@@ -1,9 +1,7 @@
 ﻿using DahaimMVC.Areas.Shop.Models;
 using DahaimMVC.Areas.Shop.Models.OrdersModels;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace DahaimMVC.Areas.Shop.Controllers
@@ -12,14 +10,17 @@ namespace DahaimMVC.Areas.Shop.Controllers
     {
         StoreDbContext storeDB = new StoreDbContext();
         const string PromoCode = "FREE";
-        //
-        // GET: /Checkout/AddressAndPayment
+
         public ActionResult AddressAndPayment()
         {
+            if (ShoppingCart.GetCart(this.HttpContext).GetTotal() == 0)
+            {
+                TempData["EmptyCart"] = "Koszyk niemoże być pusty";
+                return RedirectToAction("Index","ShoppingCart");
+            }
             return View();
         }
-        //
-        // POST: /Checkout/AddressAndPayment
+
         [HttpPost]
         public ActionResult AddressAndPayment(FormCollection values)
         {
@@ -28,41 +29,44 @@ namespace DahaimMVC.Areas.Shop.Controllers
 
             try
             {
-                if (string.Equals(values["PromoCode"], PromoCode,
-                    StringComparison.OrdinalIgnoreCase) == false)
+
+                if (Session["UserName"] != null)
                 {
-                    return View(order);
+                    order.Username = Session["UserName"].ToString();
                 }
                 else
                 {
-                    order.Username = User.Identity.Name;
-                    order.OrderDate = DateTime.Now;
-
-                    //Save Order
-                    storeDB.Orders.Add(order);
-                    storeDB.SaveChanges();
-                    //Process the order
-                    var cart = ShoppingCart.GetCart(this.HttpContext);
-                    cart.CreateOrder(order);
-
-                    return RedirectToAction("Complete",
-                        new { id = order.OrderId });
+                    order.Username = "Unregistered user";
                 }
+                order.OrderDate = DateTime.Now;
+
+                var sum = ShoppingCart.GetCart(this.HttpContext).GetTotal();
+                order.Total = sum;
+                if (string.Equals(values["PromoCode"], PromoCode,
+                    StringComparison.OrdinalIgnoreCase) == true)
+                {
+                    sum = (sum * (decimal)0.9);
+                }
+                order.Total = sum;
+
+                storeDB.Orders.Add(order);
+                storeDB.SaveChanges();
+
+                var cart = ShoppingCart.GetCart(this.HttpContext);
+                cart.CreateOrder(order);
+
+                return RedirectToAction("Complete", new { id = order.OrderId });
             }
             catch
             {
-                //Invalid - redisplay with errors
                 return View(order);
             }
         }
-        //
-        // GET: /Checkout/Complete
+
         public ActionResult Complete(int id)
         {
-            // Validate customer owns this order
             bool isValid = storeDB.Orders.Any(
-                o => o.OrderId == id &&
-                o.Username == User.Identity.Name);
+                o => o.OrderId == id);
 
             if (isValid)
             {
