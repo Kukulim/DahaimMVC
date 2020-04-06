@@ -1,4 +1,5 @@
 ﻿using DahaimMVC.Models;
+using System;
 using System.Web.Mvc;
 
 namespace DahaimMVC.Areas.Admin.Controllers
@@ -13,11 +14,16 @@ namespace DahaimMVC.Areas.Admin.Controllers
             this.database = database;
             this.messageData = messageData;
         }
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder, string searchString)
         {
-            var model = database.GetAll();
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.LvlSortParm = sortOrder == "lagnuageLvl" ? "lagnuageLvl_desc" : "lagnuageLvl";
+
+            var model = database.GetAll(sortOrder, searchString);
+
             int unreaded = messageData.UnReaded();
             TempData["Unreaded"] = unreaded;
+
             return View(model);
         }
         public ActionResult UserDetails(int id)
