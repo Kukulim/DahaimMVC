@@ -1,6 +1,8 @@
 ﻿using DahaimMVC.Areas.Shop.Models;
 using System.Web.Mvc;
 using Type = DahaimMVC.Areas.Shop.Models.Type;
+using PagedList;
+using PagedList.Mvc;
 
 namespace DahaimMVC.Areas.Shop.Controllers
 {
@@ -20,10 +22,16 @@ namespace DahaimMVC.Areas.Shop.Controllers
             var types = typeData.GetAll();
             return View(types);
         }
-        public ActionResult Browse(string type)
+        public ActionResult Browse(string type ,int? page)
         {
             Type typeModel = typeData.GetType(type);
-            return View(typeModel);
+
+            int pageSize = 6;
+            int pageNumber = (page ?? 1);
+
+            ViewBag.Type = type;
+
+            return View(typeModel.Products.ToPagedList(pageNumber, pageSize));
         }
 
         public ActionResult Details(int id)
