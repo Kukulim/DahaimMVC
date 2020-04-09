@@ -1,0 +1,91 @@
+﻿@model IEnumerable<DahaimMVC.Areas.Shop.Models.OrdersModels.ShipmentAndPayment>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('[data-toggle="popover"]').popover();
+    });
+</script>
+
+<div class="mt-4">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.Order.OrderId)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.Order.Total)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.IsPayed)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.IsSent)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.IsComplete)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                int iterator = 1;
+            }
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <a tabindex="0"
+                           class="btn btn-info"
+                           role="button"
+                           data-html="true"
+                           data-toggle="popover"
+                           data-trigger="focus"
+                           title="Szczegóły zamówienia nr @item.OrderId"
+                           data-content="
+                            <div>
+                                <p>Imię: <b>@item.Order.FirstName</b></p>
+                                <p>Nazwisko :<b>@item.Order.LastName</b></p>
+                                <p>Adres:: <b>@item.Order.Address</b></p>
+                                <p>Miasto: <b>@item.Order.City</b></p>
+                                <p>Kwota: <b>@item.Order.Total</b></p>
+                            </div>
+                           ">Zamówienie nr: @Html.DisplayFor(modelItem => item.Order.OrderId)</a>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Order.Total)
+                    </td>
+                    <td>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="IsPayedCheck@iterator">
+                            <label class="custom-control-label" for="IsPayedCheck@iterator"></label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="IsSentCheck@iterator">
+                            <label class="custom-control-label" for="IsSentCheck@iterator"></label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="IsCompleteCheck@iterator">
+                            <label class="custom-control-label" for="IsCompleteCheck@iterator"></label>
+                        </div>
+                    </td>
+                    <td>
+                        @Html.ActionLink("Szczególy", "Details", new { id = item.ShipmentAndPaymentId }) |
+                        @Html.ActionLink("Zapisz", "Index", new { id = item.ShipmentAndPaymentId })
+                    </td>
+                </tr>
+                {
+                    iterator++;
+                }
+            }
+        </tbody>
+    </table>
+</div>

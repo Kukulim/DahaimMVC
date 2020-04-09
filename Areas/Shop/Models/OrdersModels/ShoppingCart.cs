@@ -118,6 +118,18 @@ namespace DahaimMVC.Areas.Shop.Models.OrdersModels
             decimal orderTotal = 0;
 
             var cartItems = GetCartItems();
+
+            var shimpent = new ShipmentAndPayment
+            {
+                OrderId = order.OrderId,
+                PayedTime = new DateTime(2000, 1, 1),
+                SentTime = new DateTime(2000, 1, 1),
+                IsPayed = false,
+                IsComplete = false,
+                IsSent = false
+            };
+            storeDB.ShipmentAndPayments.Add(shimpent);
+
             // Iterate over the items in the cart, 
             // adding the order details for each
             foreach (var item in cartItems)

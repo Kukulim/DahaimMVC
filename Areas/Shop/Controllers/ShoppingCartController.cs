@@ -11,7 +11,7 @@ namespace DahaimMVC.Areas.Shop.Controllers
 {
     public class ShoppingCartController : Controller
     {
-        StoreDbContext storeDB = new StoreDbContext();
+        readonly StoreDbContext storeDB = new StoreDbContext();
         //
         // GET: /ShoppingCart/
         public ActionResult Index()

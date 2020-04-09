@@ -9,7 +9,7 @@ namespace DahaimMVC.Areas.Shop.Models
         public StoreDbContext()
             : base("name=DahaimDB")
         {
-            //Database.SetInitializer(new StoreDbInitializer());
+            Database.SetInitializer(new StoreDbInitializer());
         }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Type> Types { get; set; }
@@ -18,5 +18,6 @@ namespace DahaimMVC.Areas.Shop.Models
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
         public DbSet<ShoppingCartViewModel> ShoppingCartViewModels { get; set; }
+        public DbSet<ShipmentAndPayment> ShipmentAndPayments { get; set; }
     }
 }

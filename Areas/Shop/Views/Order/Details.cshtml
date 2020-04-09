@@ -1,0 +1,72 @@
+﻿@model DahaimMVC.Areas.Shop.Models.OrdersModels.Order
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.State)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PostalCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Country)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            Kwota zamowienia:
+        </th>
+        <th></th>
+    </tr>
+
+    <tr>
+        <th>
+            @Html.DisplayFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.City)
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.State)
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.PostalCode)
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.Country)
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.Phone)
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.Total)
+        </th>
+    </tr>
+
+</table>
+@Html.ActionLink("Powrót", "Index")

@@ -10,6 +10,7 @@ namespace DahaimMVC.Areas.Shop.Models.OrdersModels
     {
         [ScaffoldColumn(false)]
         public int OrderId { get; set; }
+        
         [ScaffoldColumn(false)]
         public string Username { get; set; }
 
@@ -58,10 +59,14 @@ namespace DahaimMVC.Areas.Shop.Models.OrdersModels
         [DisplayName("Email:")]
         [RegularExpression(@"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}", ErrorMessage = "Email nie spełnia wymogów")]
         public string Email { get; set; }
+        
         [ScaffoldColumn(false)]
         public decimal Total { get; set; }
+        
         [ScaffoldColumn(false)]
         public System.DateTime OrderDate { get; set; }
-        public List<OrderDetail> OrderDetails { get; set; }
+
+        public List<OrderDetail> OrderDetails { get; set; }   
+        public List<ShipmentAndPayment> ShipmentAndPayments { get; set; }
     }
 }

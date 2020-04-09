@@ -8,7 +8,7 @@ namespace DahaimMVC.Areas.Shop.Controllers
 {
     public class CheckoutController : Controller
     {
-        StoreDbContext storeDB = new StoreDbContext();
+        readonly StoreDbContext storeDB = new StoreDbContext();
         const string PromoCode = "FREE";
 
         public ActionResult AddressAndPayment()
@@ -24,12 +24,12 @@ namespace DahaimMVC.Areas.Shop.Controllers
         [HttpPost]
         public ActionResult AddressAndPayment(FormCollection values)
         {
+
             var order = new Order();
             TryUpdateModel(order);
 
             try
             {
-
                 if (Session["UserName"] != null)
                 {
                     order.Username = Session["UserName"].ToString();
