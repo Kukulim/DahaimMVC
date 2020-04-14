@@ -1,57 +1,58 @@
-﻿@model IEnumerable<DahaimMVC.Areas.Shop.Models.OrdersModels.ShipmentAndPayment>
+﻿@model IList<DahaimMVC.Areas.Shop.Models.OrdersModels.ShipmentAndPayment>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Order.Username)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsPayed)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PayedTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsSent)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SentTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsComplete)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Order.Username)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsPayed)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PayedTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsSent)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SentTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsComplete)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ShipmentAndPaymentId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ShipmentAndPaymentId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ShipmentAndPaymentId })
-        </td>
-    </tr>
+@{
+    Layout = "~/Areas/Shop/Views/Shared/_LayoutOrder.cshtml";
 }
 
-</table>
+    <div class="mt-4">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model[0].Order.LastName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model[0].Order.Total)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model[0].IsPayed)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model[0].IsSent)
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (var i = 0; i < Model.Count; i++)
+                    {
+                        <tr>
+                            <td>
+                                Zamówienie nr: @Html.DisplayFor(modelItem => Model[i].Order.OrderId)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => Model[i].Order.Total)
+                            </td>
+                            <td>
+                                <div>
+                                    @Html.DisplayFor(modelItem => Model[i].PayedTime)
+                                </div>
+                            </td>
+
+                            <td>
+                                <div>
+                                    @Html.DisplayFor(modelItem => Model[i].SentTime)
+                                </div>
+                            </td>
+
+                            <td>
+                                <div>
+                                    @Html.ActionLink("Szczególy", "Details", new { id = Model[i].ShipmentAndPaymentId }, new { @class = "btn btn-dark" })                                    
+                                </div>
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        
+    </div>

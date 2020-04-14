@@ -1,72 +1,123 @@
-﻿@model DahaimMVC.Areas.Shop.Models.OrdersModels.Order
+﻿@model DahaimMVC.Areas.Shop.ViewModels.OrderDetailsViewModel
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LastName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Address)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.City)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.State)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PostalCode)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Country)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Phone)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Email)
-        </th>
-        <th>
-            Kwota zamowienia:
-        </th>
-        <th></th>
-    </tr>
+@{
+    Layout = "~/Areas/Shop/Views/Shared/_LayoutOrder.cshtml";
+}
 
-    <tr>
-        <th>
-            @Html.DisplayFor(model => model.FirstName)
-        </th>
-        <th>
-            @Html.DisplayFor(model => model.LastName)
-        </th>
-        <th>
-            @Html.DisplayFor(model => model.Address)
-        </th>
-        <th>
-            @Html.DisplayFor(model => model.City)
-        </th>
-        <th>
-            @Html.DisplayFor(model => model.State)
-        </th>
-        <th>
-            @Html.DisplayFor(model => model.PostalCode)
-        </th>
-        <th>
-            @Html.DisplayFor(model => model.Country)
-        </th>
-        <th>
-            @Html.DisplayFor(model => model.Phone)
-        </th>
-        <th>
-            @Html.DisplayFor(model => model.Email)
-        </th>
-        <th>
-            @Html.DisplayFor(model => model.Total)
-        </th>
-    </tr>
+<div>
 
-</table>
-@Html.ActionLink("Powrót", "Index")
+    <h2 class="text-center mt-4 mb-4">Szczegóły zamówienia nr: @Model.Order.OrderId</h2>
+
+    <table class="table mt-4">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => Model.Order.FirstName)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => Model.Order.LastName)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => Model.Order.Address)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => Model.Order.City)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => Model.Order.State)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => Model.Order.PostalCode)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => Model.Order.Country)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => Model.Order.Phone)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => Model.Order.Email)
+                </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td scope="row">
+                    @Html.DisplayFor(model => Model.Order.FirstName)
+                </td>
+                <td scope="row">
+                    @Html.DisplayFor(model => Model.Order.LastName)
+                </td>
+                <td scope="row">
+                    @Html.DisplayFor(model => Model.Order.Address)
+                </td>
+                <td scope="row">
+                    @Html.DisplayFor(model => Model.Order.City)
+                </td>
+                <td scope="row">
+                    @Html.DisplayFor(model => Model.Order.State)
+                </td>
+                <td scope="row">
+                    @Html.DisplayFor(model => Model.Order.PostalCode)
+                </td>
+                <td scope="row">
+                    @Html.DisplayFor(model => Model.Order.Country)
+                </td>
+                <td scope="row">
+                    @Html.DisplayFor(model => Model.Order.Phone)
+                </td>
+                <td scope="row">
+                    @Html.DisplayFor(model => Model.Order.Email)
+            </tr>
+        </tbody>
+    </table>
+
+    <h3 class="text-center m-5">Produkty:</h3>
+
+    <table class="table col-10">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Nazwa produktu:</th>
+                <th scope="col">Cena(jednostkowa w zł):</th>
+                <th scope="col">Ilość:</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.OrderDetail)
+            {
+                <tr>
+                    <td>
+                        @item.Product.Title
+                    </td>
+
+                    <td>
+                        @item.Product.Price
+                    </td>
+
+                    <td>
+                        @item.Quantity
+                    </td>
+                </tr>
+            }
+            <tr class="table-success">
+                <td>
+                    Cena wszystkich produktów
+                </td>
+
+                <td>
+                    <b style="font-size:22px">@Model.Order.Total</b>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="text-center">
+        @Html.ActionLink("Powrót", null, null, null, new { href = Request.UrlReferrer, @class = "btn btn-dark m-5" })
+    </div>
+</div>

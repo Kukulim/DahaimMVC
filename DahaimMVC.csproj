@@ -313,6 +313,7 @@
     <Compile Include="Areas\Shop\Models\StoreDbContext.cs" />
     <Compile Include="Areas\Shop\Models\Type\Type.cs" />
     <Compile Include="Areas\Shop\ShopAreaRegistration.cs" />
+    <Compile Include="Areas\Shop\ViewModels\OrderDetailsViewModel.cs" />
     <Compile Include="Areas\Shop\ViewModels\ShoppingCartRemoveViewModel.cs" />
     <Compile Include="Areas\Shop\ViewModels\ShoppingCartViewModel.cs" />
     <Compile Include="Areas\UserPanel\Data\LanguageLvlFilter.cs" />
@@ -423,6 +424,7 @@
     <Content Include="Areas\Shop\Views\Order\Index.cshtml" />
     <Content Include="Areas\Shop\Views\Order\Archive.cshtml" />
     <Content Include="Areas\Shop\Views\Order\Details.cshtml" />
+    <Content Include="Areas\Shop\Views\Shared\_LayoutOrder.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

@@ -4,17 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Dahaim #1</title>
 
-    <title>@ViewBag.Title</title>
+    <title> Dahaim #1 </title>
     <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
     @Scripts.Render("~/bundles/modernizr")
     <link rel="stylesheet" href="~/Content/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
 </head>
+
 <body>
     <header>
         <div class="conteiner">
-            <nav class="navbar navbar-expand-lg text-center">
+            <nav class="navbar navbar-expand-lg">
                 <a class="navbar-brand" href="#index.html"><h1 id="logo"><span id="logoFirst">d</span>ahaim</h1></a>
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
@@ -25,24 +27,21 @@
                     <ul class="navbar-nav ml-auto menu">
 
                         <li class="nav-item">
-                            @Html.ActionLink("Zamówienia", "Index", "Order", new { area = "Shop" }, new { @class = "nav-link  ml-3" })
+                            @Html.ActionLink("Aktualne zamowienia", "Index", "Order", null, new { @class = "nav-link ml-3" })
                         </li>
 
                         <li class="nav-item">
-                            @Html.ActionLink("Sklep Manager", "Index", "ShopManager", new { area = "Shop" }, new { @class = "nav-link  ml-3" })
+                            @Html.ActionLink("Archiwum zamówień", "Archive", "Order", null, new { @class = "nav-link ml-3" })
                         </li>
 
                         <li class="nav-item">
-                            @Html.ActionLink("Wiadomości (" + @TempData["Unreaded"] + ")", "MessageIndex", "ControlPanel", null, new { @class = "nav-link  ml-3" })
+                            @Html.ActionLink("Panel Administratora", "index", "ControlPanel", new { area = "Admin" }, new { @class = "nav-link ml-3" })
                         </li>
 
                         <li class="nav-item">
-                            @Html.ActionLink("Logout", "LogOut", "Admin", null, new { @class = "nav-link  ml-3" })
+                            @Html.ActionLink("Strona główna", "index", "home", new { area = "" }, new { @class = "nav-link ml-3" })
                         </li>
 
-                        <li class="nav-item">
-                            @Html.ActionLink("Strona główna", "index", "home", new { area = "" }, new { @class = "nav-link  ml-3" })
-                        </li>
                     </ul>
                 </div>
 
@@ -50,8 +49,13 @@
         </div>
     </header>
 
-    <div class="mainwindow">
-        @RenderBody()
+    <div class="container mainwindow">
+        <div class="row">
+
+            <div class="col">
+                @RenderBody()
+            </div>
+        </div>
     </div>
 
     <footer>

@@ -9,6 +9,7 @@ namespace DahaimMVC.Areas.Shop.Models.OrdersModels
     public class Order
     {
         [ScaffoldColumn(false)]
+        [DisplayName("Numer zamowienia:")]
         public int OrderId { get; set; }
         
         [ScaffoldColumn(false)]
@@ -61,6 +62,7 @@ namespace DahaimMVC.Areas.Shop.Models.OrdersModels
         public string Email { get; set; }
         
         [ScaffoldColumn(false)]
+        [DisplayName("Łączna kwota:")]
         public decimal Total { get; set; }
         
         [ScaffoldColumn(false)]
