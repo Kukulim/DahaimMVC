@@ -1,8 +1,5 @@
 ﻿using DahaimMVC.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace DahaimMVC.Areas.Admin.Controllers
@@ -17,11 +14,16 @@ namespace DahaimMVC.Areas.Admin.Controllers
             this.database = database;
             this.messageData = messageData;
         }
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder, string searchString)
         {
-            var model = database.GetAll();
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.LvlSortParm = sortOrder == "lagnuageLvl" ? "lagnuageLvl_desc" : "lagnuageLvl";
+
+            var model = database.GetAll(sortOrder, searchString);
+
             int unreaded = messageData.UnReaded();
             TempData["Unreaded"] = unreaded;
+
             return View(model);
         }
         public ActionResult UserDetails(int id)
@@ -59,7 +61,7 @@ namespace DahaimMVC.Areas.Admin.Controllers
             return View(model);
         }
         [HttpPost]
-        public ActionResult UserDelete(int id, int? cos) //gdziesz widziałem jak to zrobić inaczej
+        public ActionResult UserDelete(int id, int? cos) //gdziesz widziałem jak to zrobić inaczej ROZWIAZANE W SHOPMANAGER KONTROLER ZOSTAWIAM JAKO PRZYKŁAD
         {
             var model = database.Get(id);
             database.Delete(model);
@@ -121,7 +123,7 @@ namespace DahaimMVC.Areas.Admin.Controllers
             return View(model);
         }
         [HttpPost]
-        public ActionResult MessageDelete(int id, int? cos) //gdziesz widziałem jak to zrobić inaczej
+        public ActionResult MessageDelete(int id, int? cos) //gdziesz widziałem jak to zrobić inaczej ROZWIAZANE W SHOPMANAGER KONTROLER ZOSTAWIAM JAKO PRZYKŁAD
         {
             var model = messageData.Get(id);
             messageData.Delete(model);

@@ -211,3 +211,7 @@ footer {
 .dropdown-menu {
     background: var(--darkBlue);
 }
+
+.mainwindow {
+    min-height: 800px;
+}

@@ -63,6 +63,37 @@ namespace DahaimMVC.Models
         {
             return users.OrderBy(r => r.UserName);
         }
+
+        public IEnumerable<User> GetAll(string sortOrder, string searchString)
+        {
+            var students = from s in users
+                           select s;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                students = students.Where(s => s.Name.Contains(searchString)
+                                       || s.Subname.Contains(searchString));
+            }
+
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    students = students.OrderByDescending(s => s.Subname);
+                    break;
+                case "lagnuageLvl_desc":
+                    students = students.OrderByDescending(s => s.LanguageLvl);
+                    break;
+                case "lagnuageLvl":
+                    students = students.OrderBy(s => s.LanguageLvl);
+                    break;
+
+                default:
+                    students = students.OrderBy(s => s.Subname);
+                    break;
+            }
+            return students;
+        }
+
         public User GetLogin(User user)
         {
             return users.Where(x => x.UserName == user.UserName && x.UserPassword == user.UserPassword).FirstOrDefault();

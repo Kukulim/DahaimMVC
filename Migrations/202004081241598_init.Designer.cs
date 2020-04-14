@@ -7,13 +7,13 @@ namespace DahaimMVC.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.0")]
-    public sealed partial class Initialmessage : IMigrationMetadata
+    public sealed partial class init : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Initialmessage));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(init));
         
         string IMigrationMetadata.Id
         {
-            get { return "202003181333039_Initial message"; }
+            get { return "202004081241598_init"; }
         }
         
         string IMigrationMetadata.Source

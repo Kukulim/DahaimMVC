@@ -1,0 +1,42 @@
+﻿@model DahaimMVC.Areas.Shop.Models.OrdersModels.Order
+
+@{
+    ViewBag.Title = "AddressAndPayment";
+}
+
+<div>
+    @using (Html.BeginForm())
+    {
+
+        <h2 class="mt-4 mb-4">Wysyłka i płatność:</h2>
+
+        <div class="row">
+            <div class="col-sm">
+                <fieldset>
+                    <legend>Informacje o wysyłce:</legend>
+                    @Html.EditorForModel()
+                </fieldset>
+            </div>
+            <div class="col-sm">
+                <fieldset>
+                    <legend>Płatność:</legend>
+                    <p>Wpisz kod promocyjny by otrzymać 10 % rabatu na zakupy.</p>
+                    <div class="editor-label">
+                        <label>Kod promocyjny:</label>
+                    </div>
+                    <div class="editor-field">
+                        @Html.TextBox("PromoCode")
+                    </div>
+                </fieldset>
+                <input type="submit" value="Zamów" class="btn-outline-success btn-lg mt-5 mb-5" />
+                <div class="text-right">
+                    @Html.ActionLink("Wróc do sklepu", "Index", "Shop", null, new { @class = "btn btn-outline-dark m-1" })
+                    @Html.ActionLink("Anuluj zakupy", "Index", "Home", new { area = "" }, new { @class = "btn btn-outline-danger", @onclick = "return confirm('Czy napewno chcesz anulować zakupy?. Jeśli naciśniesz tak, usuniente zostaną wszystkie produkty z koszyka i zostaniesz przekierowany na strone Startową Dahaim.pl.');" })
+                </div>
+            </div>
+        </div>
+    }
+
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+</div>

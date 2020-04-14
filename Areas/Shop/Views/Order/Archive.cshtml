@@ -1,0 +1,58 @@
+﻿@model IList<DahaimMVC.Areas.Shop.Models.OrdersModels.ShipmentAndPayment>
+
+@{
+    Layout = "~/Areas/Shop/Views/Shared/_LayoutOrder.cshtml";
+}
+
+    <div class="mt-4">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model[0].Order.LastName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model[0].Order.Total)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model[0].IsPayed)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model[0].IsSent)
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (var i = 0; i < Model.Count; i++)
+                    {
+                        <tr>
+                            <td>
+                                Zamówienie nr: @Html.DisplayFor(modelItem => Model[i].Order.OrderId)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => Model[i].Order.Total)
+                            </td>
+                            <td>
+                                <div>
+                                    @Html.DisplayFor(modelItem => Model[i].PayedTime)
+                                </div>
+                            </td>
+
+                            <td>
+                                <div>
+                                    @Html.DisplayFor(modelItem => Model[i].SentTime)
+                                </div>
+                            </td>
+
+                            <td>
+                                <div>
+                                    @Html.ActionLink("Szczególy", "Details", new { id = Model[i].ShipmentAndPaymentId }, new { @class = "btn btn-dark" })                                    
+                                </div>
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        
+    </div>

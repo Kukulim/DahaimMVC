@@ -1,0 +1,106 @@
+﻿@model IList<DahaimMVC.Areas.Shop.Models.OrdersModels.ShipmentAndPayment>
+
+@{
+    Layout = "~/Areas/Shop/Views/Shared/_LayoutOrder.cshtml";
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('[data-toggle="popover"]').popover();
+        $(':input').css('min-width', '20px');
+    });
+</script>
+
+<div class="mt-4">
+    @using (Html.BeginForm())
+    {
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model[0].Order.LastName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model[0].Order.Total)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model[0].IsPayed)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model[0].IsSent)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model[0].IsComplete)
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (var i = 0; i < Model.Count; i++)
+                {
+                    <tr>
+                        <td>
+                            <a tabindex="0"
+                               class="btn btn-info"
+                               role="button"
+                               data-html="true"
+                               data-toggle="popover"
+                               data-trigger="focus"
+                               title="Szczegóły zamówienia nr @Model[i].OrderId"
+                               data-content="
+                            <div>
+                                <p>Imię: <b>@Model[i].Order.FirstName</b></p>
+                                <p>Nazwisko :<b>@Model[i].Order.LastName</b></p>
+                                <p>Adres:: <b>@Model[i].Order.Address</b></p>
+                                <p>Miasto: <b>@Model[i].Order.City</b></p>
+                                <p>Kwota: <b>@Model[i].Order.Total</b></p>
+                            </div>
+                           ">Zamówienie nr: @Html.DisplayFor(modelItem => Model[i].Order.OrderId)</a>
+                        </td>
+                        @Html.HiddenFor(m => Model[i].Order.FirstName)
+                        @Html.HiddenFor(m => Model[i].Order.LastName)
+                        @Html.HiddenFor(m => Model[i].Order.Address)
+                        @Html.HiddenFor(m => Model[i].Order.City)
+                        @Html.HiddenFor(m => Model[i].Order.Total)
+                        <td>
+                            @Html.DisplayFor(modelItem => Model[i].Order.Total)
+                        </td>
+                        <td>
+                            <div>
+                                @Html.CheckBoxFor(modelItem => Model[i].IsPayed)
+                            </div>
+                        </td>
+
+                        <td>
+                            <div>
+                                @Html.CheckBoxFor(modelItem => Model[i].IsSent, new { @class = "IsSent" })
+                            </div>
+                        </td>
+
+                        <td>
+                            <div>
+                                @Html.CheckBoxFor(modelItem => Model[i].IsComplete, new { @class = "IsComplete" })
+                            </div>
+                        </td>
+
+                        <td>
+                            <div>
+                                @Html.ActionLink("Szczególy", "Details", new { id = Model[i].ShipmentAndPaymentId }, new { @class = "btn btn-dark" })
+                            </div>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+        <div class="text-center">
+        <input id="submit1" type="submit" value="Zapisz" class="btn btn-success col-3" />
+    </div>
+    }
+</div>

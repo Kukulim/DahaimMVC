@@ -1,0 +1,91 @@
+﻿@model DahaimMVC.Areas.Shop.ViewModels.ShoppingCartViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+@{
+    Layout = "~/Areas/Shop/Views/Shared/_LayoutWithCart.cshtml";
+}
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        // Document.ready -> link up remove event handler
+        $(".RemoveLink").click(function () {
+            // Get the id from the link
+            var recordToDelete = $(this).attr("data-id");
+            if (recordToDelete != '') {
+                // Perform the ajax post
+                $.post("/ShoppingCart/RemoveFromCart", { "id": recordToDelete },
+                    function (data) {
+                        // Successful requests get here
+                        // Update the page elements
+                        if (data.ItemCount == 0) {
+                            $('#row-' + data.DeleteId).fadeOut('slow');
+                        } else {
+                            $('#item-count-' + data.DeleteId).text(data.ItemCount);
+                        }
+                        $('#cart-total').text(data.CartTotal);
+                        $('#update-message').text(data.Message);
+                        $('#cart-status').text('Cart (' + data.CartCount + ')');
+                    });
+            }
+        });
+    });
+</script>
+<h3 class="mt-5 mb-5">Podgląd koszyka:</h3>
+
+<p class="button">
+    @Html.ActionLink("Do Kasy", "AddressAndPayment", "Checkout", "", new { @class = "btn btn-outline-success" })
+</p>
+
+<div id="update-message" class="text-center text-danger text-lg-left mt-3 mb-3"></div>
+<h3 class="text-center text-danger m-4">@TempData["EmptyCart"]</h3>
+<table class="table">
+    <thead class="table-primary">
+        <tr>
+            <th scope="col">Nazwa produktu:</th>
+            <th scope="col">Cena(jednostkowa):</th>
+            <th scope="col">Ilość:</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.CartItems)
+        {
+            <tr id="row-@item.RecordId">
+                <td>
+                    @Html.ActionLink(item.Product.Title, "Details", "Shop", new { id = item.ProductId }, null)
+                </td>
+                <td>
+                    @item.Product.Price
+                </td>
+                <td id="item-count-@item.RecordId">
+                    @item.Count
+                </td>
+                <td>
+                    <a href="#" class="RemoveLink"
+                       data-id="@item.RecordId">
+                        Usuń z koszyka
+                        <i class="fas fa-trash-alt"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+        <tr class="table-success">
+            <td>
+                Cena wszystkich produktów
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td id="cart-total">
+                @Model.CartTotal
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div class="text-center m-3">
+    @Html.ActionLink("Kontunuuj zakupy", "Index", "Shop", null, new { @class = "btn btn-dark m-1" })
+</div>

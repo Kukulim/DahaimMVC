@@ -1,0 +1,24 @@
+﻿@model PagedList.IPagedList<DahaimMVC.Areas.Shop.Models.Product>
+@using PagedList.Mvc;
+
+@{
+    Layout = "~/Areas/Shop/Views/Shared/_LayoutWithCartAndNavigation.cshtml";
+}
+
+<div class="card-columns mt-5">
+    @foreach (var album in Model)
+    {
+
+        <div class="card text-center">
+            <img class="card-img-top mt-3" src="@album.ProductArtUrl" alt=@album.Title>
+            <div class="card-body">
+                <h5 class="card-title">@album.Title</h5>
+                <a href="@Url.Action("Details", new { id = album.ProductId })" class="btn btn-outline-info m-1">Szczegóły</a>
+                @Html.ActionLink("Dodaj do koszyka", "AddToCart", "ShoppingCart", new { id = album.ProductId }, new { @class = "btn btn-warning m-1" })
+            </div>
+        </div>
+    }
+</div>
+<div class="col-1 m-auto">
+    @Html.PagedListPager(Model, page => Url.Action("Browse", "Shop", new { Type = ViewBag.Type, page }), new PagedListRenderOptions() { LiElementClasses = new List<string> { "page-link" , "page-item", "btn-info" } })
+</div>

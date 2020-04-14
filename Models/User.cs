@@ -20,7 +20,6 @@ namespace DahaimMVC.Models
         [DataType(DataType.Password)]
         [Required]
         [StringLength(50)]
-        [Display(Name = "Password")]
         [RegularExpression(@"(?=.*\d)(?=.*[A-Za-z]).{5,}", ErrorMessage = "Has³o musi mieæ przynajmniej 5 symboli z czego jeden musi byæ liter¹ i jeden musi byæ liczba")]
         public string UserPassword { get; set; }
         [DisplayName("Powtórz_Has³o:")]

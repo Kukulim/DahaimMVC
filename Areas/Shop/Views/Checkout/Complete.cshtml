@@ -1,0 +1,12 @@
+﻿@model int
+@{
+    ViewBag.Title = "Checkout Complete";
+}
+<h2 class="mt-4 mb-4">Zamowienie zrealizowane</h2>
+<p>Dziekujemy za zakupy w naszym sklepie! Numer twojego zamówienia to:<span style="font-size: 30px; color:steelblue">@Model</span></p>
+<p>
+    Zapraszamy do ponownych zakupów:
+</p>
+<div>
+    @Html.ActionLink("Powrót do sklepu", "Index", "Shop", null, new { @class = "btn btn-info" })
+</div>

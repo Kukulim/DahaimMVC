@@ -1,0 +1,15 @@
+﻿@model IEnumerable<DahaimMVC.Areas.Shop.Models.Type>
+
+@{
+    ViewBag.Title = "Index";
+}
+@{
+    Layout = "~/Areas/Shop/Views/Shared/_LayoutWithCart.cshtml";
+}
+<div>
+    <h2 class="m-4 ml-5">Wybierz z interesujący Cię dział:</h2>
+    @foreach (var item in Model)
+    {
+        @Html.ActionLink(item.Name, "Browse", new { Type = item.Name }, new { @class = "btn btn-info m-5 btn-lg btn-block" })
+    }
+</div>

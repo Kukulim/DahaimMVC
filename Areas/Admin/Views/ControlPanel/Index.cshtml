@@ -2,68 +2,75 @@
 
 @{
 
-    if (Session["UserName"] == null)
+    if (Session["UserName"].ToString() != "admin")
     {
-        Response.Redirect("~/Admin/Index");
+        Response.Redirect("~/Admin/Admin/Index");
     }
 }
 @{
     Layout = "~/Areas/Admin/Views/Shared/_LayoutControlPanel.cshtml";
 }
 
-<div class="container">
+    <div class="container">
 
-    <h2 class="m-4">Studenci:</h2>
-    <hr />
-    <h3 class="text-center text-danger m-4">@TempData["Message"]</h3>
-    <p>
-        @Html.ActionLink("Dodaj studenta", "CreateUser",null, new { @class = "btn btn-info m-1" })
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Subname)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PhoneNumber)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LanguageLvl)
-            </th>
-            <th></th>
-        </tr>
-
-        @foreach (var item in Model)
+        <h2 class="m-4">Studenci:</h2>
+        <hr />
+        <h3 class="text-center text-danger m-4">@TempData["Message"]</h3>
+        <p>
+            @Html.ActionLink("Dodaj studenta", "CreateUser", null, new { @class = "btn btn-info m-1" })
+        </p>
+        @using (Html.BeginForm())
         {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Subname)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PhoneNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LanguageLvl)
-        </td>
-        <td>
-            @Html.ActionLink("Edycja", "UserEdit", new { id = item.UserId }) |
-            @Html.ActionLink("Szczegóły", "UserDetails", new { id = item.UserId }) |
-            @Html.ActionLink("Usuń", "UserDelete", new { id = item.UserId })
-        </td>
-    </tr>
+            <p class="col">
+                <div class="d-inline-block col-8">Szukaj: @Html.TextBox("SearchString", null, new { @class = "form-control" } )</div>
+                <input type="submit" value="Szukaj" class="btn btn-dark col-1 m-3"/>
+            </p>
         }
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.ActionLink("Nazwisko", "Index", new { sortOrder = ViewBag.NameSortParm })
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PhoneNumber)
+                </th>
+                <th>
+                    @Html.ActionLink("Poziom języka", "Index", new { sortOrder = ViewBag.LvlSortParm })
+                </th>
+                <th></th>
+            </tr>
 
-    </table>
-</div>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Subname)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PhoneNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LanguageLvl)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edycja", "UserEdit", new { id = item.UserId }) |
+                        @Html.ActionLink("Szczegóły", "UserDetails", new { id = item.UserId }) |
+                        @Html.ActionLink("Usuń", "UserDelete", new { id = item.UserId })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
