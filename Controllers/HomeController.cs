@@ -17,7 +17,10 @@ namespace DahaimMVC.Controllers
         }
         public ActionResult Index()
         {
-            Session.Clear();
+            if (Session != null)
+            {
+                Session.Clear();
+            }
             return View();
         }
         [HttpPost]
