@@ -7,9 +7,9 @@ namespace DahaimMVC.Areas.Admin.Models
 {
     public class SqlMessageData : IMessageData
     {
-        private readonly MessageDbContext messageDb;
+        private readonly IMessageDbContext messageDb;
 
-        public SqlMessageData(MessageDbContext messageDb)
+        public SqlMessageData(IMessageDbContext messageDb)
         {
             this.messageDb = messageDb;
         }
@@ -18,14 +18,14 @@ namespace DahaimMVC.Areas.Admin.Models
             messageDb.Messages.Add(message);
             message.Readed = 0;
             message.SendTime = DateTime.Now;
-            messageDb.SaveChanges();
+            //messageDb.SaveChanges();
         }
 
         public void Delete(Message message)
         {
             var MessageEdit = messageDb.Messages.Find(message.Id);
             messageDb.Messages.Remove(MessageEdit);
-            messageDb.SaveChanges();
+            //.SaveChanges();
         }
 
         public Message Get(int id)
@@ -35,14 +35,14 @@ namespace DahaimMVC.Areas.Admin.Models
 
         public IEnumerable<Message> GetAll()
         {
-            return messageDb.Messages;
+            return messageDb.Messages.ToList();
         }
 
         public Message GetAndRead(int id)
         {
             var MessageEdit = messageDb.Messages.FirstOrDefault(m => m.Id == id);
             MessageEdit.Readed = 1;
-            messageDb.SaveChanges();
+            //messageDb.SaveChanges();
             return MessageEdit;
         }
 

@@ -7,7 +7,7 @@ namespace DahaimMVC.Models
 {
     public class InMemoryMessageData : IMessageData
     {
-        List<Message> messages;
+        readonly List<Message> messages;
 
         public InMemoryMessageData()
         {

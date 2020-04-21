@@ -22,7 +22,7 @@ namespace DahaimMVC
             builder.RegisterType<SqlAuthorData>().As<IAuthorData>().InstancePerRequest();
 
             builder.RegisterType<UserDbContext>().InstancePerRequest();
-            builder.RegisterType<MessageDbContext>().InstancePerRequest();
+            builder.RegisterType<MessageDbContext>().As<IMessageDbContext>().InstancePerRequest();
             builder.RegisterType<StoreDbContext>().InstancePerRequest();
 
             IContainer container = builder.Build();

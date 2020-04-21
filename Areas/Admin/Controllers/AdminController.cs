@@ -9,7 +9,7 @@ namespace DahaimMVC.Areas.Admin.Controllers
 {
     public class AdminController : Controller
     {
-        private Administrator admin;
+        private readonly Administrator admin;
 
         public AdminController()
         {
@@ -32,7 +32,11 @@ namespace DahaimMVC.Areas.Admin.Controllers
         }
         public ActionResult LogOut()
         {
-            Session.Abandon();
+            if (Session != null)
+            {
+                Session.Clear();
+            }
+
             return RedirectToAction("Index", "Admin");
         }
     }
