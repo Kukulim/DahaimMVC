@@ -13,6 +13,7 @@ namespace DahaimMVC.Areas.Admin.Models
         {
             this.messageDb = messageDb;
         }
+
         public void Add(Message message)
         {
             messageDb.Messages.Add(message);

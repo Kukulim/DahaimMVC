@@ -14,6 +14,7 @@ namespace DahaimMVC.Areas.Admin.Controllers
             this.database = database;
             this.messageData = messageData;
         }
+
         public ActionResult Index(string sortOrder, string searchString)
         {
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
@@ -26,6 +27,7 @@ namespace DahaimMVC.Areas.Admin.Controllers
 
             return View(model);
         }
+
         public ActionResult UserDetails(int id)
         {
             var model = database.Get(id);
@@ -35,6 +37,7 @@ namespace DahaimMVC.Areas.Admin.Controllers
             }
             return View(model);
         }
+
         public ActionResult UserEdit(int id)
         {
             var model = database.Get(id);
@@ -44,6 +47,7 @@ namespace DahaimMVC.Areas.Admin.Controllers
             }
             return View(model);
         }
+
         [HttpPost]
         public ActionResult UserEdit(User model)
         {
@@ -51,6 +55,7 @@ namespace DahaimMVC.Areas.Admin.Controllers
             TempData["Message"] = "Zapisano w bazie danych";
             return RedirectToAction("Index");
         }
+
         public ActionResult UserDelete(int id)
         {
             var model = database.Get(id);
@@ -60,6 +65,7 @@ namespace DahaimMVC.Areas.Admin.Controllers
             }
             return View(model);
         }
+
         [HttpPost]
         public ActionResult UserDelete(int id, int? cos) //gdziesz widziałem jak to zrobić inaczej ROZWIAZANE W SHOPMANAGER KONTROLER ZOSTAWIAM JAKO PRZYKŁAD
         {
@@ -67,12 +73,13 @@ namespace DahaimMVC.Areas.Admin.Controllers
             database.Delete(model);
             TempData["Message"] = "Student usuniety z bazy danych";
             return RedirectToAction("Index");
-
         }
+
         public ActionResult CreateUser()
         {
             return View();
         }
+
         [HttpPost]
         public ActionResult CreateUser(User userModel)
         {
@@ -91,15 +98,16 @@ namespace DahaimMVC.Areas.Admin.Controllers
 
             return View();
         }
+
         public ActionResult MessageIndex()
         {
             var model = messageData.GetAll();
             TempData["Unreaded"] = messageData.UnReaded();
             return View(model);
         }
+
         public ActionResult MessageDetails(int id)
         {
-          
             {
                 var model = messageData.GetAndRead(id);
                 if (model == null)
@@ -111,6 +119,7 @@ namespace DahaimMVC.Areas.Admin.Controllers
                 return View(model);
             }
         }
+
         public ActionResult MessageDelete(int id)
         {
             var model = messageData.Get(id);
@@ -122,6 +131,7 @@ namespace DahaimMVC.Areas.Admin.Controllers
             TempData["Unreaded"] = unreaded;
             return View(model);
         }
+
         [HttpPost]
         public ActionResult MessageDelete(int id, int? cos) //gdziesz widziałem jak to zrobić inaczej ROZWIAZANE W SHOPMANAGER KONTROLER ZOSTAWIAM JAKO PRZYKŁAD
         {

@@ -8,15 +8,15 @@ namespace DahaimMVC.Areas.Shop.Controllers
 {
     public class CheckoutController : Controller
     {
-        readonly StoreDbContext storeDB = new StoreDbContext();
-        const string PromoCode = "FREE";
+        private readonly StoreDbContext storeDB = new StoreDbContext();
+        private const string PromoCode = "FREE";
 
         public ActionResult AddressAndPayment()
         {
             if (ShoppingCart.GetCart(this.HttpContext).GetTotal() == 0)
             {
                 TempData["EmptyCart"] = "Koszyk niemoże być pusty";
-                return RedirectToAction("Index","ShoppingCart");
+                return RedirectToAction("Index", "ShoppingCart");
             }
             return View();
         }
@@ -24,7 +24,6 @@ namespace DahaimMVC.Areas.Shop.Controllers
         [HttpPost]
         public ActionResult AddressAndPayment(FormCollection values)
         {
-
             var order = new Order();
             TryUpdateModel(order);
 

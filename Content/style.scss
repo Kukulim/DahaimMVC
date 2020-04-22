@@ -50,13 +50,13 @@ li {
     border: 1px solid $vanilla;
     background: $midnight;
     transition: all 0.2s;
-}
 
-    .button1:hover {
+    &:hover {
         padding: 13px;
         transform: rotateZ(1deg);
         overflow: visible;
     }
+}
 
 /*Hedder:*/
 header {
@@ -75,6 +75,12 @@ header {
 
 .menu {
     text-transform: uppercase;
+
+    a:hover {
+        background-color: $lightBlue;
+        border-radius: 5px;
+        color: $darkBlue;
+    }
 }
 
 .nav-item a {
@@ -87,12 +93,6 @@ header {
 
 .navbar-toggler {
     border-color: $vanilla;
-}
-
-.menu a:hover {
-    background-color: $lightBlue;
-    border-radius: 5px;
-    color: $darkBlue;
 }
 
 #logoFirst {
@@ -117,18 +117,21 @@ header {
     margin-top: 15%;
 }
 
-.welcomePage p {
-    margin-top: 10%;
-    text-align: center;
+.welcomePage {
+    p {
+        margin-top: 10%;
+        text-align: center;
+    }
+
+    button {
+        display: block;
+        margin-top: 5%;
+        margin-bottom: 15px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
-.welcomePage button {
-    display: block;
-    margin-top: 5%;
-    margin-bottom: 15px;
-    margin-left: auto;
-    margin-right: auto;
-}
 /* O mnie */
 .omnie {
     background: $lightvnilla;
@@ -158,15 +161,14 @@ header {
     margin-top: 200px;
 }
 
-
 /* Opinie Page */
-.card img {
-    max-width: 150px;
-}
-
 .card {
     border: none;
     background-color: $lightvnilla;
+
+    img {
+        max-width: 150px;
+    }
 }
 
 /* KONTAKT */
@@ -221,13 +223,13 @@ footer {
 /* MEDIA */
 
 @media only screen and (max-width: 576px) {
-  #opiniebox{
-    height: 1150px;
-  }
-}
-@media only screen and (max-width: 768px) {
-.opisOpinia{
-  font-size: 14px;
-}
+    #opiniebox {
+        height: 1150px;
+    }
 }
 
+@media only screen and (max-width: 768px) {
+    .opisOpinia {
+        font-size: 14px;
+    }
+}

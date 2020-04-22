@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 
 namespace DahaimMVC.Areas.Shop.Models
 {
@@ -13,6 +10,7 @@ namespace DahaimMVC.Areas.Shop.Models
         {
             this.storeDbContex = storeDbContex;
         }
+
         IEnumerable<Author> IAuthorData.GetAll()
         {
             return storeDbContex.Authors;

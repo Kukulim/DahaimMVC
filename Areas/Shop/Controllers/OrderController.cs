@@ -5,7 +5,6 @@ using DahaimMVC.Filters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace DahaimMVC.Areas.Shop.Controllers
@@ -13,7 +12,7 @@ namespace DahaimMVC.Areas.Shop.Controllers
     [AdminAccessFilter]
     public class OrderController : Controller
     {
-        readonly StoreDbContext storeDB = new StoreDbContext();
+        private readonly StoreDbContext storeDB = new StoreDbContext();
 
         // GET: Shop/Order
         public ActionResult Index()
@@ -21,6 +20,7 @@ namespace DahaimMVC.Areas.Shop.Controllers
             var model = storeDB.ShipmentAndPayments.Where(x => x.IsComplete == false).ToList();
             return View(model);
         }
+
         [HttpPost]
         public ActionResult Index(IList<ShipmentAndPayment> modeledit)
         {
@@ -28,7 +28,7 @@ namespace DahaimMVC.Areas.Shop.Controllers
             for (int i = 0; i < modeledit.Count(); i++)
             {
                 if (model[i].IsPayed == false && modeledit[i].IsPayed == true)
-                { 
+                {
                     model[i].PayedTime = DateTime.Now;
                 }
                 model[i].IsPayed = modeledit[i].IsPayed;
@@ -45,11 +45,13 @@ namespace DahaimMVC.Areas.Shop.Controllers
 
             return RedirectToAction("Index");
         }
+
         public ActionResult Archive()
         {
             var model = storeDB.ShipmentAndPayments.Where(x => x.IsComplete == true).ToList();
             return View(model);
         }
+
         public ActionResult Details(int id)
         {
             var model = new OrderDetailsViewModel

@@ -2,17 +2,17 @@
 
 namespace DahaimMVC.Areas.Shop
 {
-    public class ShopAreaRegistration : AreaRegistration 
+    public class ShopAreaRegistration : AreaRegistration
     {
-        public override string AreaName 
+        public override string AreaName
         {
-            get 
+            get
             {
                 return "Shop";
             }
         }
 
-        public override void RegisterArea(AreaRegistrationContext context) 
+        public override void RegisterArea(AreaRegistrationContext context)
         {
             context.MapRoute(
                 "Shop_default",

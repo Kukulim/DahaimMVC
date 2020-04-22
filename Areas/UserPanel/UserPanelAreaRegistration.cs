@@ -2,17 +2,17 @@
 
 namespace DahaimMVC.Areas.UserPanel
 {
-    public class UserPanelAreaRegistration : AreaRegistration 
+    public class UserPanelAreaRegistration : AreaRegistration
     {
-        public override string AreaName 
+        public override string AreaName
         {
-            get 
+            get
             {
                 return "UserPanel";
             }
         }
 
-        public override void RegisterArea(AreaRegistrationContext context) 
+        public override void RegisterArea(AreaRegistrationContext context)
         {
             context.MapRoute(
                 "UserPanel_default",

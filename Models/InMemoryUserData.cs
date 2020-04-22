@@ -1,28 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
 namespace DahaimMVC.Models
 {
     public class InMemoryUserData : IUserData
     {
-        List<User> users;
+        private List<User> users;
+
         public InMemoryUserData()
         {
             users = new List<User>() {
                 new User { UserName = "muser", UserPassword = "mpass1", Name = "Lukasz", Subname = "Testowy", Email ="test@gmail.com", PhoneNumber ="123123123", LanguageLvl= LanguageLvlEmun.A0},
             };
         }
+
         public void Add(User user)
         {
             users.Add(user);
-            user.UserId = users.Max( r => r.UserId ) + 1;
+            user.UserId = users.Max(r => r.UserId) + 1;
         }
 
         public void Delete(User user)
         {
-            users.RemoveAll( r => r.UserId == user.UserId );
+            users.RemoveAll(r => r.UserId == user.UserId);
         }
 
         public void Edit(User user)
@@ -80,9 +81,11 @@ namespace DahaimMVC.Models
                 case "name_desc":
                     students = students.OrderByDescending(s => s.Subname);
                     break;
+
                 case "lagnuageLvl_desc":
                     students = students.OrderByDescending(s => s.LanguageLvl);
                     break;
+
                 case "lagnuageLvl":
                     students = students.OrderBy(s => s.LanguageLvl);
                     break;

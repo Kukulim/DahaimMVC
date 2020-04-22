@@ -11,6 +11,7 @@ namespace DahaimMVC.Controllers
         {
             this.messageDataBase = messageDataBase;
         }
+
         public ActionResult Index()
         {
             if (Session != null)
@@ -19,6 +20,7 @@ namespace DahaimMVC.Controllers
             }
             return View();
         }
+
         [HttpPost]
         public ActionResult Index(Message message)
         {

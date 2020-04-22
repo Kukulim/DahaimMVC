@@ -36,11 +36,10 @@ li {
   border: 1px solid #ccc9a1;
   background: #631d76;
   transition: all 0.2s; }
-
-.button1:hover {
-  padding: 13px;
-  transform: rotateZ(1deg);
-  overflow: visible; }
+  .button1:hover {
+    padding: 13px;
+    transform: rotateZ(1deg);
+    overflow: visible; }
 
 /*Hedder:*/
 header {
@@ -57,6 +56,10 @@ header {
 
 .menu {
   text-transform: uppercase; }
+  .menu a:hover {
+    background-color: #468c98;
+    border-radius: 5px;
+    color: #101419; }
 
 .nav-item a {
   color: #ccc9a1; }
@@ -66,11 +69,6 @@ header {
 
 .navbar-toggler {
   border-color: #ccc9a1; }
-
-.menu a:hover {
-  background-color: #468c98;
-  border-radius: 5px;
-  color: #101419; }
 
 #logoFirst {
   color: #468c98; }
@@ -126,12 +124,11 @@ header {
   margin-top: 200px; }
 
 /* Opinie Page */
-.card img {
-  max-width: 150px; }
-
 .card {
   border: none;
   background-color: #faf3dd; }
+  .card img {
+    max-width: 150px; }
 
 /* KONTAKT */
 .kontakt {
