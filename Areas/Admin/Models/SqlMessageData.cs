@@ -7,9 +7,9 @@ namespace DahaimMVC.Areas.Admin.Models
 {
     public class SqlMessageData : IMessageData
     {
-        private readonly IMessageDbContext messageDb;
+        private readonly MessageDbContext messageDb;
 
-        public SqlMessageData(IMessageDbContext messageDb)
+        public SqlMessageData(MessageDbContext messageDb)
         {
             this.messageDb = messageDb;
         }
