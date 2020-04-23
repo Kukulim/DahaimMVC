@@ -19,14 +19,14 @@ namespace DahaimMVC.Areas.Admin.Models
             messageDb.Messages.Add(message);
             message.Readed = 0;
             message.SendTime = DateTime.Now;
-            //messageDb.SaveChanges();
+            messageDb.SaveChanges();
         }
 
         public void Delete(Message message)
         {
             var MessageEdit = messageDb.Messages.Find(message.Id);
             messageDb.Messages.Remove(MessageEdit);
-            //.SaveChanges();
+            messageDb.SaveChanges();
         }
 
         public Message Get(int id)
@@ -43,7 +43,7 @@ namespace DahaimMVC.Areas.Admin.Models
         {
             var MessageEdit = messageDb.Messages.FirstOrDefault(m => m.Id == id);
             MessageEdit.Readed = 1;
-            //messageDb.SaveChanges();
+            messageDb.SaveChanges();
             return MessageEdit;
         }
 
