@@ -13,6 +13,7 @@ namespace DahaimMVC.Areas.Admin.Models
         {
             this.messageDb = messageDb;
         }
+
         public void Add(Message message)
         {
             messageDb.Messages.Add(message);
@@ -35,7 +36,7 @@ namespace DahaimMVC.Areas.Admin.Models
 
         public IEnumerable<Message> GetAll()
         {
-            return messageDb.Messages;
+            return messageDb.Messages.ToList();
         }
 
         public Message GetAndRead(int id)

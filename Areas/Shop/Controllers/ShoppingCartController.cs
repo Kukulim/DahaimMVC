@@ -1,17 +1,15 @@
 ﻿using DahaimMVC.Areas.Shop.Models;
 using DahaimMVC.Areas.Shop.Models.OrdersModels;
 using DahaimMVC.Areas.Shop.ViewModels;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace DahaimMVC.Areas.Shop.Controllers
 {
     public class ShoppingCartController : Controller
     {
-        readonly StoreDbContext storeDB = new StoreDbContext();
+        private readonly StoreDbContext storeDB = new StoreDbContext();
+
         //
         // GET: /ShoppingCart/
         public ActionResult Index()
@@ -27,6 +25,7 @@ namespace DahaimMVC.Areas.Shop.Controllers
             // Return the view
             return View(viewModel);
         }
+
         //
         // GET: /Store/AddToCart/5
         public ActionResult AddToCart(int id)
@@ -43,6 +42,7 @@ namespace DahaimMVC.Areas.Shop.Controllers
             // Go back to the main store page for more shopping
             return RedirectToAction("Index");
         }
+
         //
         // AJAX: /ShoppingCart/RemoveFromCart/5
         [HttpPost]
@@ -61,7 +61,7 @@ namespace DahaimMVC.Areas.Shop.Controllers
             // Display the confirmation message
             var results = new ShoppingCartRemoveViewModel
             {
-                Message ="' " + Server.HtmlEncode(productName) + " '" + " został usuniety z twojego koszyka.",
+                Message = "' " + Server.HtmlEncode(productName) + " '" + " został usuniety z twojego koszyka.",
                 CartTotal = cart.GetTotal(),
                 CartCount = cart.GetCount(),
                 ItemCount = itemCount,
@@ -69,6 +69,7 @@ namespace DahaimMVC.Areas.Shop.Controllers
             };
             return Json(results);
         }
+
         //
         // GET: /ShoppingCart/CartSummary
         [ChildActionOnly]
@@ -79,6 +80,5 @@ namespace DahaimMVC.Areas.Shop.Controllers
             ViewData["CartCount"] = cart.GetCount();
             return PartialView("CartSummary");
         }
-
     }
 }

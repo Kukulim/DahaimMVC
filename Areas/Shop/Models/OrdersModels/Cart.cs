@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Web;
 
 namespace DahaimMVC.Areas.Shop.Models.OrdersModels
 {
@@ -12,6 +8,7 @@ namespace DahaimMVC.Areas.Shop.Models.OrdersModels
         [Key]
         [Column(Order = 0)]
         public int RecordId { get; set; }
+
         public string CartId { get; set; }
         public int ProductId { get; set; }
         public int Count { get; set; }

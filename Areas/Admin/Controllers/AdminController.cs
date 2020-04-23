@@ -1,25 +1,21 @@
-﻿using DahaimMVC.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace DahaimMVC.Areas.Admin.Controllers
 {
     public class AdminController : Controller
     {
-        private Administrator admin;
+        private readonly Administrator admin;
 
         public AdminController()
         {
-            admin =  new Administrator();
+            admin = new Administrator();
         }
 
         public ActionResult Index()
         {
             return View();
         }
+
         [HttpPost]
         public ActionResult Index(Administrator adminModel)
         {
@@ -30,9 +26,14 @@ namespace DahaimMVC.Areas.Admin.Controllers
             }
             return View();
         }
+
         public ActionResult LogOut()
         {
-            Session.Abandon();
+            if (Session != null)
+            {
+                Session.Clear();
+            }
+
             return RedirectToAction("Index", "Admin");
         }
     }

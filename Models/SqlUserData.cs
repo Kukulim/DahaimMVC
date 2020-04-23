@@ -1,17 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
-using System.Web;
 
 namespace DahaimMVC.Models
 {
     public class SqlUserData : IUserData
     {
         private readonly UserDbContext database;
+
         public SqlUserData(UserDbContext _database)
         {
-            this.database = _database;       
+            this.database = _database;
         }
 
         public void Add(User user)
@@ -46,7 +45,7 @@ namespace DahaimMVC.Models
         {
             var userEdit = database.User.Find(user.UserId);
             if (userEdit != null)
-            {              
+            {
                 userEdit.UserName = user.UserName;
                 userEdit.Name = user.Name;
                 userEdit.Subname = user.Subname;
@@ -82,9 +81,11 @@ namespace DahaimMVC.Models
                 case "name_desc":
                     students = students.OrderByDescending(s => s.Subname);
                     break;
+
                 case "lagnuageLvl_desc":
                     students = students.OrderByDescending(s => s.LanguageLvl);
                     break;
+
                 case "lagnuageLvl":
                     students = students.OrderBy(s => s.LanguageLvl);
                     break;

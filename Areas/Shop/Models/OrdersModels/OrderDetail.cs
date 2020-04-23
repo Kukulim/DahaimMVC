@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace DahaimMVC.Areas.Shop.Models.OrdersModels
+﻿namespace DahaimMVC.Areas.Shop.Models.OrdersModels
 {
     public class OrderDetail
     {

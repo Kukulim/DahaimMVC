@@ -4,11 +4,10 @@ using System.Web.Mvc.Filters;
 
 namespace DahaimMVC.Filters
 {
-
     public class AdminAccessFilter : ActionFilterAttribute, IAuthenticationFilter
     {
         public static Administrator Administrator = new Administrator();
-        string adminRole = Administrator.AdminName;
+        private string adminRole = Administrator.AdminName;
 
         public void OnAuthentication(AuthenticationContext context)
         {

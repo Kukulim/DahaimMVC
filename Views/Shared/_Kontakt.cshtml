@@ -17,28 +17,28 @@
             <div class="col text-center m-2">
                 @using (Html.BeginForm())
                 {
-                    @Html.AntiForgeryToken()
+                @Html.AntiForgeryToken()
 
-                    <div class="boxKontakt">
-                        <ul>
-                            <li><h5 id="test">Imię:</h5></li>
-                            <li>
-                                @Html.EditorFor(model => model.MessageName, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.MessageName, "", new { @class = "text-danger" })
-                            </li>
-                            <li><h5>email:</h5></li>
-                            <li>
-                                @Html.EditorFor(model => model.MessageEmail, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.MessageEmail, "", new { @class = "text-danger" })
-                            </li>
-                            <li><h5>Wiadomość:</h5></li>
-                            <li>
-                                @Html.TextAreaFor(model => model.MessageText, 8, 50, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.MessageText, "", new { @class = "text-danger" })
-                            </li>
-                        </ul>
-                        <input type="submit" value="Wyślij wiadomość" class="button1 mt-4" />
-                    </div>
+                <div class="boxKontakt">
+                    <ul>
+                        <li><h5 id="test">Imię:</h5></li>
+                        <li>
+                            @Html.EditorFor(model => model.MessageName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.MessageName, "", new { @class = "text-danger" })
+                        </li>
+                        <li><h5>email:</h5></li>
+                        <li>
+                            @Html.EditorFor(model => model.MessageEmail, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.MessageEmail, "", new { @class = "text-danger" })
+                        </li>
+                        <li><h5>Wiadomość:</h5></li>
+                        <li>
+                            @Html.TextAreaFor(model => model.MessageText, 8, 50, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.MessageText, "", new { @class = "text-danger" })
+                        </li>
+                    </ul>
+                    <input type="submit" value="Wyślij wiadomość" class="button1 mt-4" />
+                </div>
                 }
             </div>
 
@@ -57,6 +57,6 @@
         <script src="~/Scripts/jquery-3.4.1.min.js"></script>
         <script src="~/Scripts/jquery.validate.min.js"></script>
         <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+        @*działa ale niepotrzebnie dodane 2 razy scrypty na stronie powinno byc w section script na dole strony*@
     </div>
-
 </section>

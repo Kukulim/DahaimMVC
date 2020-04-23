@@ -1,0 +1,235 @@
+$vanilla: #ccc9a1;
+$lightvnilla: #faf3dd;
+$midnight: #631d76;
+$purple: rgb(10, 0, 8);
+$blue: #476c9b;
+$lightBlue: #468c98;
+$darkBlue: #101419;
+
+/* styles: */
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+.conteiner {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+a {
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    text-decoration: none;
+    list-style: none;
+}
+
+.button1 {
+    padding: 10px;
+    text-transform: uppercase;
+    color: white;
+    font-weight: 700;
+    border-radius: 5px;
+    border: 1px solid $vanilla;
+    background: $midnight;
+    transition: all 0.2s;
+
+    &:hover {
+        padding: 13px;
+        transform: rotateZ(1deg);
+        overflow: visible;
+    }
+}
+
+/*Hedder:*/
+header {
+    background: $darkBlue;
+    min-height: 70px;
+}
+
+#logo {
+    float: left;
+    color: $vanilla;
+    text-transform: uppercase;
+    font-size: 25px;
+    background: $midnight;
+    padding: 10px;
+}
+
+.menu {
+    text-transform: uppercase;
+
+    a:hover {
+        background-color: $lightBlue;
+        border-radius: 5px;
+        color: $darkBlue;
+    }
+}
+
+.nav-item a {
+    color: $vanilla;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(241, 211, 110)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.navbar-toggler {
+    border-color: $vanilla;
+}
+
+#logoFirst {
+    color: $lightBlue;
+}
+
+.moje {
+    color: red;
+}
+/* First Page: */
+.welcomePage {
+    min-height: 700px;
+    background: url(./images/welcomebook.jpg) no-repeat;
+    background-size: cover;
+}
+
+#slogan {
+    color: $vanilla;
+    font-size: 50px;
+    text-align: center;
+    text-shadow: 4px 4px 9px black;
+    margin-top: 15%;
+}
+
+.welcomePage {
+    p {
+        margin-top: 10%;
+        text-align: center;
+    }
+
+    button {
+        display: block;
+        margin-top: 5%;
+        margin-bottom: 15px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* O mnie */
+.omnie {
+    background: $lightvnilla;
+}
+
+/* Oferta Page */
+.ofertasrodek {
+    background-color: $lightvnilla;
+}
+
+/* Cytat */
+
+.cytat {
+    background: url(./images/library-3185061_1280.jpg) no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    text-shadow: 3px 3px 4px black;
+}
+
+.cytatText {
+    height: 400px;
+    text-align: center;
+    color: aliceblue;
+}
+
+.cytatbox {
+    margin-top: 200px;
+}
+
+/* Opinie Page */
+.card {
+    border: none;
+    background-color: $lightvnilla;
+
+    img {
+        max-width: 150px;
+    }
+}
+
+/* KONTAKT */
+.kontakt {
+    background-color: $darkBlue;
+}
+
+.naglowekKontakt {
+    color: $lightvnilla;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+input {
+    width: 100%;
+    min-width: 300px;
+}
+
+textarea {
+    width: 100%;
+}
+
+.daneKontaktowe {
+    color: $vanilla;
+}
+
+.boxKontakt {
+    color: $vanilla;
+}
+
+/* FOTTER */
+footer {
+    font-size: 20px;
+    border-top: 3px solid $midnight;
+    background: $purple;
+    color: $lightvnilla;
+    text-align: center;
+}
+
+.formularz button {
+    border: 1px solid $purple;
+}
+
+.dropdown-menu {
+    background: $darkBlue;
+}
+
+.mainwindow {
+    min-height: 800px;
+}
+
+/* MEDIA */
+
+@media only screen and (max-width: 576px) {
+    #opiniebox {
+        height: 1150px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .opisOpinia {
+        font-size: 14px;
+    }
+}

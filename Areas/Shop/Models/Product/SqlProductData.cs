@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
-using System.Web;
 
 namespace DahaimMVC.Areas.Shop.Models
 {
@@ -14,6 +11,7 @@ namespace DahaimMVC.Areas.Shop.Models
         {
             this.storeDbContext = storeDbContext;
         }
+
         public void Add(Product product)
         {
             storeDbContext.Products.Add(product);
@@ -41,7 +39,7 @@ namespace DahaimMVC.Areas.Shop.Models
 
         public IEnumerable<Product> GetAll()
         {
-            return storeDbContext.Products.Include( a => a.Type ).Include( a => a.Author );
+            return storeDbContext.Products.Include(a => a.Type).Include(a => a.Author);
         }
     }
 }

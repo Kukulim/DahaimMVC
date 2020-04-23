@@ -7,7 +7,6 @@
     Layout = "~/Areas/Admin/Views/Shared/_LayoutControlPanelNoMessage.cshtml";
 }
 
-
 <div class="container">
     <h2 class="m-4 text-center">Szczegóły:</h2>
 
@@ -69,7 +68,6 @@
             <dd>
                 @Html.DisplayFor(model => model.PhoneNumber)
             </dd>
-
         </dl>
 
         <div class="text-center m-3">
@@ -79,6 +77,5 @@
         <div class="text-center">
             @Html.ActionLink("Powrót do listy studentów", "Index", "ControlPanel", null, new { @class = "btn btn-dark m-1" })
         </div>
-
     </div>
 </div>

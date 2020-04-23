@@ -8,20 +8,23 @@ namespace DahaimMVC.Areas.Shop.Models.OrdersModels
 {
     public partial class ShoppingCart
     {
-        readonly StoreDbContext storeDB = new StoreDbContext();
-        string ShoppingCartId { get; set; }
+        private readonly StoreDbContext storeDB = new StoreDbContext();
+        private string ShoppingCartId { get; set; }
         public const string CartSessionKey = "CartId";
+
         public static ShoppingCart GetCart(HttpContextBase context)
         {
             var cart = new ShoppingCart();
             cart.ShoppingCartId = cart.GetCartId(context);
             return cart;
         }
+
         // Helper method to simplify shopping cart calls
         public static ShoppingCart GetCart(Controller controller)
         {
             return GetCart(controller.HttpContext);
         }
+
         public void AddToCart(Product product)
         {
             // Get the matching cart and album instances
@@ -43,13 +46,14 @@ namespace DahaimMVC.Areas.Shop.Models.OrdersModels
             }
             else
             {
-                // If the item does exist in the cart, 
+                // If the item does exist in the cart,
                 // then add one to the quantity
                 cartItem.Count++;
             }
             // Save changes
             storeDB.SaveChanges();
         }
+
         public int RemoveFromCart(int id)
         {
             // Get the cart
@@ -75,6 +79,7 @@ namespace DahaimMVC.Areas.Shop.Models.OrdersModels
             }
             return itemCount;
         }
+
         public void EmptyCart()
         {
             var cartItems = storeDB.Carts.Where(
@@ -87,11 +92,13 @@ namespace DahaimMVC.Areas.Shop.Models.OrdersModels
             // Save changes
             storeDB.SaveChanges();
         }
+
         public List<Cart> GetCartItems()
         {
             return storeDB.Carts.Where(
                 cart => cart.CartId == ShoppingCartId).ToList();
         }
+
         public int GetCount()
         {
             // Get the count of each item in the cart and sum them up
@@ -101,9 +108,10 @@ namespace DahaimMVC.Areas.Shop.Models.OrdersModels
             // Return 0 if all entries are null
             return count ?? 0;
         }
+
         public decimal GetTotal()
         {
-            // Multiply album price by count of that album to get 
+            // Multiply album price by count of that album to get
             // the current price for each of those albums in the cart
             // sum all album price totals to get the cart total
             decimal? total = (from cartItems in storeDB.Carts
@@ -113,6 +121,7 @@ namespace DahaimMVC.Areas.Shop.Models.OrdersModels
 
             return total ?? decimal.Zero;
         }
+
         public int CreateOrder(Order order)
         {
             decimal orderTotal = 0;
@@ -130,7 +139,7 @@ namespace DahaimMVC.Areas.Shop.Models.OrdersModels
             };
             storeDB.ShipmentAndPayments.Add(shimpent);
 
-            // Iterate over the items in the cart, 
+            // Iterate over the items in the cart,
             // adding the order details for each
             foreach (var item in cartItems)
             {
@@ -145,7 +154,6 @@ namespace DahaimMVC.Areas.Shop.Models.OrdersModels
                 orderTotal += (item.Count * item.Product.Price);
 
                 storeDB.OrderDetails.Add(orderDetail);
-
             }
             // Set the order's total to the orderTotal count
             order.Total = orderTotal;
@@ -157,6 +165,7 @@ namespace DahaimMVC.Areas.Shop.Models.OrdersModels
             // Return the OrderId as the confirmation number
             return order.OrderId;
         }
+
         // We're using HttpContextBase to allow access to cookies.
         public string GetCartId(HttpContextBase context)
         {
@@ -177,6 +186,7 @@ namespace DahaimMVC.Areas.Shop.Models.OrdersModels
             }
             return context.Session[CartSessionKey].ToString();
         }
+
         // When a user has logged in, migrate their shopping cart to
         // be associated with their username
         public void MigrateCart(string userName)

@@ -1,34 +1,32 @@
 ﻿using DahaimMVC.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace DahaimMVC.Areas.UserPanel.Controllers
 {
     public class LoginController : Controller
     {
-        private readonly IUserData database;       
+        private readonly IUserData database;
+
         public LoginController(IUserData database)
         {
             this.database = database;
         }
-        
+
         public ActionResult Index()
         {
             return View();
         }
+
         public ActionResult Authorize(User userModel)
         {
-            var UserDetails = database.GetLogin(userModel);           
+            var UserDetails = database.GetLogin(userModel);
             if (UserDetails == null)
             {
                 ModelState.Clear();
 
                 ViewBag.WrongPassword = "Błędny login lub hasło";
 
-                return View("Index",new User());
+                return View("Index", new User());
             }
             else
             {
@@ -38,15 +36,18 @@ namespace DahaimMVC.Areas.UserPanel.Controllers
                 return RedirectToAction("Index", "UserDetails");
             }
         }
+
         public ActionResult LogOut()
         {
             Session.Abandon();
             return RedirectToAction("Index", "Login");
         }
+
         public ActionResult Register()
         {
             return View();
         }
+
         [HttpPost]
         public ActionResult Register(User userModel)
         {
@@ -65,6 +66,7 @@ namespace DahaimMVC.Areas.UserPanel.Controllers
 
             return View("Register");
         }
+
         public ActionResult Register2()
         {
             return View();

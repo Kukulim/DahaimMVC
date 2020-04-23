@@ -11,7 +11,7 @@ namespace DahaimMVC.Areas.Shop.Models.OrdersModels
         [ScaffoldColumn(false)]
         [DisplayName("Numer zamowienia:")]
         public int OrderId { get; set; }
-        
+
         [ScaffoldColumn(false)]
         public string Username { get; set; }
 
@@ -40,7 +40,6 @@ namespace DahaimMVC.Areas.Shop.Models.OrdersModels
         [StringLength(40)]
         public string State { get; set; }
 
-
         [Required(ErrorMessage = "Kod pocztowy jest wymagany")]
         [DisplayName("Kod pocztowy:")]
         [StringLength(10)]
@@ -60,15 +59,15 @@ namespace DahaimMVC.Areas.Shop.Models.OrdersModels
         [DisplayName("Email:")]
         [RegularExpression(@"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}", ErrorMessage = "Email nie spełnia wymogów")]
         public string Email { get; set; }
-        
+
         [ScaffoldColumn(false)]
         [DisplayName("Łączna kwota:")]
         public decimal Total { get; set; }
-        
+
         [ScaffoldColumn(false)]
         public System.DateTime OrderDate { get; set; }
 
-        public List<OrderDetail> OrderDetails { get; set; }   
+        public List<OrderDetail> OrderDetails { get; set; }
         public List<ShipmentAndPayment> ShipmentAndPayments { get; set; }
     }
 }

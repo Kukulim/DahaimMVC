@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
-using System.Web;
 
 namespace DahaimMVC.Areas.Shop.Models
 {
@@ -14,6 +12,7 @@ namespace DahaimMVC.Areas.Shop.Models
         {
             this.storeDbContext = storeDbContext;
         }
+
         public void Add(Type type)
         {
             storeDbContext.Types.Add(type);
@@ -34,6 +33,7 @@ namespace DahaimMVC.Areas.Shop.Models
         {
             return storeDbContext.Types;
         }
+
         public Type GetType(string type)
         {
             return storeDbContext.Types.Include("Products").Single(g => g.Name == type);

@@ -1,12 +1,10 @@
 ﻿using DahaimMVC.Areas.Shop.Models;
+using PagedList;
 using System.Web.Mvc;
 using Type = DahaimMVC.Areas.Shop.Models.Type;
-using PagedList;
-using PagedList.Mvc;
 
 namespace DahaimMVC.Areas.Shop.Controllers
 {
-
     public class ShopController : Controller
     {
         private readonly ITypeData typeData;
@@ -17,12 +15,14 @@ namespace DahaimMVC.Areas.Shop.Controllers
             this.typeData = typeData;
             this.productData = productData;
         }
+
         public ActionResult Index()
         {
             var types = typeData.GetAll();
             return View(types);
         }
-        public ActionResult Browse(string type ,int? page)
+
+        public ActionResult Browse(string type, int? page)
         {
             Type typeModel = typeData.GetType(type);
 
@@ -39,6 +39,7 @@ namespace DahaimMVC.Areas.Shop.Controllers
             var typeModel = productData.Get(id);
             return View(typeModel);
         }
+
         [ChildActionOnly]
         public ActionResult TypeMenu()
         {

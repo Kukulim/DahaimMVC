@@ -1,9 +1,6 @@
 ﻿using DahaimMVC.Areas.UserPanel.Data;
 using DahaimMVC.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace DahaimMVC.Areas.UserPanel.Controllers
@@ -16,6 +13,7 @@ namespace DahaimMVC.Areas.UserPanel.Controllers
         {
             this.database = database;
         }
+
         // GET: UserDetails
         public ActionResult Index()
         {
@@ -25,51 +23,61 @@ namespace DahaimMVC.Areas.UserPanel.Controllers
             }
             return View();
         }
+
         public ActionResult NoAuthorization()
         {
             return View();
         }
+
         [LanguageLvlFilter(RequiredLvl = 1)]
         public ActionResult A0()
         {
             return View();
         }
+
         [LanguageLvlFilter(RequiredLvl = 2)]
         public ActionResult A1()
         {
             return View();
         }
+
         [LanguageLvlFilter(RequiredLvl = 3)]
         public ActionResult A2()
         {
             return View();
         }
+
         [LanguageLvlFilter(RequiredLvl = 4)]
         public ActionResult B1()
         {
             return View();
         }
+
         [LanguageLvlFilter(RequiredLvl = 5)]
         public ActionResult B2()
         {
             return View();
         }
+
         [LanguageLvlFilter(RequiredLvl = 6)]
         public ActionResult C1()
         {
             return View();
         }
+
         [LanguageLvlFilter(RequiredLvl = 7)]
         public ActionResult C2()
         {
             return View();
         }
+
         public ActionResult UserDelete()
         {
             int identy = Convert.ToInt32(Session["UserId"]);
             var model = database.Get(identy);
             return View(model);
         }
+
         [HttpPost]
         public ActionResult UserDelete(User user)
         {
@@ -97,13 +105,14 @@ namespace DahaimMVC.Areas.UserPanel.Controllers
             }
             return View(model);
         }
+
         [HttpPost]
         public ActionResult UserEdit(User model)
         {
             database.EditByUser(model);
             TempData["Message"] = "Zapisano w bazie danych";
             Session.Clear();
-            return RedirectToAction("Index","Login");
+            return RedirectToAction("Index", "Login");
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿
-<div class="navbar navbar-expand-lg">
+﻿<div class="navbar navbar-expand-lg">
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContentUser">
         <span class="navbar-toggler-icon"></span>
@@ -7,7 +6,6 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContentUser">
         <ul class="navbar-nav m-auto menu">
-
 
             <li class="nav-item">
                 @Html.ActionLink("A0", "A0", "UserDetails", null, new { @class = (Convert.ToInt32(Session["UserLvl"]) >= 1 ? "nav-link  ml-3" : "nav-link  ml-3 disabled") })
@@ -37,5 +35,4 @@
             </li>
         </ul>
     </div>
-
 </div>
